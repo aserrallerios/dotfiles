@@ -1,8 +1,8 @@
 # custom exports
-export JAVA_HOME=/usr/local/java/jdk
-export M2_HOME=/usr/local/maven/maven
-export CATALINA_HOME=/usr/local/tomcat/tomcat
-export CATALINA_BASE=$CATALINA_HOME
+export JAVA_HOME=/opt/jdk
+export M2_HOME=~/maven
+export CATALINA_HOME=/opt/tomcat
+export CATALINA_BASE=/opt/tomcat
 
 export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:$HOME/opt/clojure-contrib/launchers/bash
 export JYTHONPATH=/home/ssedano/projects/kahuna
