@@ -21,7 +21,13 @@ alias mvnalt="mvn -gs ~/projects/m2/settings.xml"
 alias mvnnalt="mvnalt clean install -Dit.suite=none -Dtest.suite=none"
 alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all"
 
+alias psfull="ps auxfe"
+alias lsfull="ls -halF"
+
+alias jsonformat="python -mjson.tool"
+
 # ZSH
 alias -g gp='| grep  '
 alias -s rb=vim
 alias -s log='less -MN'
+

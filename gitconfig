@@ -1,6 +1,6 @@
 [user]
-    name = Serafin Sedano
-    email = serafin.sedano@gmail.com
+    name = Albert Serrallé
+    email = aserrallerios@gmail.com
 [color]
     status = always
     interactive = always
@@ -19,6 +19,8 @@
     lg = log --graph
     lt = log --graph --pretty=full
     ll = log --graph --oneline
+    last = log -10
+    list = show --name-only
     ds = diff --staged
     amend = !git commit --amend --date=\"$(date -R)\" -C HEAD
     ls = log --pretty=format:'%C(yellow)%h %C(green)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
@@ -28,20 +30,22 @@
     trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
     sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
     trysbcoup = "!f() { git submodule foreach \"git fetch && git checkout $1 && git pull origin $1 || :\" ; }; f"
+    trysbcors = "!f() { git submodule foreach \"git fetch && git checkout $1 && git reset --hard origin/$1 || :\" ; }; f"
+    lines = show --stat
 [apply]
     whitespace = nowarn
-
 [core]
     editor = vim -X
     excludesfile = ~/.gitignore
     autocrlf = false
     preloadindex = true
-    pager = less -rFXnME
+    pager = less
 [rerere]
     # Remember my merges
-    #   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
+    # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
     enabled = true
 [format]
+    # pretty=format:%h (%ad %an) %s
     pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset
 [include]
     path = .gitconfig.github

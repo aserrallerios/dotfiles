@@ -1,12 +1,15 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# theme
-ZSH_THEME="ssedano"
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="custom"
 
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim $ZSH/oh-my-zsh.sh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -27,7 +30,7 @@ ZSH_THEME="ssedano"
 # DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -40,14 +43,14 @@ ZSH_THEME="ssedano"
 plugins=(git ruby pip python rvm mvn)
 
 source $ZSH/oh-my-zsh.sh
+
 # Customize to your needs...
-autoload select-word-style
-select-word-style shell
-source ~/.zshenv
+source ~/.envs
 source ~/.functions
 source ~/.aliases
 autoload select-word-style
 select-word-style shell
+
 zstyle ':completion:*' special-dirs true
 
 setopt NO_SHARE_HISTORY
