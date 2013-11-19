@@ -54,7 +54,7 @@ local pwd="%{$fg_bold[blue]%}%30<...<%~%<<%{$reset_color%}"
 
 # The prompt
 setopt prompt_subst
-PROMPT='${user}✤${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$reset_color%}'
+PROMPT='${user}@${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$reset_color%} '
 # Add this at the start of RPROMPT to include rvm info showing ruby-version@gemset-name
 # %{$fg[yellow]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}
 
@@ -62,7 +62,7 @@ PROMPT='${user}✤${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$res
 local return_code="%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
 
 # The right-hand prompt
-RPROMPT='${return_code}$(git_prompt_string)$(git_prompt_short_sha)'
+RPROMPT='%{$reset_color%}${return_code}$(git_prompt_string)$(git_prompt_short_sha)%{$reset_color%}'
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}(%{$fg[white]%}"
@@ -96,6 +96,8 @@ GIT_PROMPT_MERGING="%{$fg_bold[white]%}⚐%{$reset_color%}"
 
 GIT_PROMPT_UNTRACKED="%{$fg_bold[magenta]%}✭%{$reset_color%}"
 GIT_PROMPT_NSTAGED="%{$fg_bold[cyan]%}✚%{$reset_color%}"
+GIT_PROMPT_NSTAGEDMOD="%{$fg_bold[yellow]%}✚%{$reset_color%}"
+GIT_PROMPT_NSTAGEDDEL="%{$fg_bold[red]%}✚%{$reset_color%}"
 
 GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}⚡%{$reset_color%}"
 GIT_PROMPT_STAGED="%{$fg_bold[green]%}⚡%{$reset_color%}"
@@ -127,7 +129,7 @@ parse_git_state() {
   if test -r .git/MERGE_HEAD; then
   else
     # L is used as a padding since there is no status code L and ' A' is not the same as 'A '
-    local STAT="$(git status --porcelain 2> /dev/null | cut -c 1-2 | sort | tr ' ' 'L' | uniq -c)"
+    local STAT="$(cat ~/.git_current_st)"
     typeset -A STATE_MAP
     STATE_MAP=( ${(Oa)=STAT} )
 
@@ -159,6 +161,16 @@ parse_git_state() {
     local NUM_NG=$STATE_MAP[AL]
     if [[ -n $NUM_NG ]]; then
       GIT_STATE=$GIT_STATE$GIT_PROMPT_NSTAGED$NUM_NG
+    fi
+
+    local NUM_NG=$STATE_MAP[AM]
+    if [[ -n $NUM_NG ]]; then
+      GIT_STATE=$GIT_STATE$GIT_PROMPT_NSTAGEDMOD$NUM_NG
+    fi
+
+    local NUM_NG=$STATE_MAP[AD]
+    if [[ -n $NUM_NG ]]; then
+      GIT_STATE=$GIT_STATE$GIT_PROMPT_NSTAGEDDEL$NUM_NG
     fi
 
     local NUM_DEL=$STATE_MAP[DL]
@@ -216,9 +228,9 @@ parse_git_branch() {
       DIFF=$GIT_PROMPT_AHEAD$NUM_AHEAD
     fi
 
-
     # L is used as a padding since there is no status code L and ' A' is not the same as 'A '
     local STAT="$(git status --porcelain 2> /dev/null | cut -c 1-2 | sort | tr ' ' 'L' | uniq -c)"
+    echo $STAT > ~/.git_current_st
     typeset -A STATE_MAP
     STATE_MAP=( ${(Oa)=STAT} )
 
@@ -253,6 +265,18 @@ parse_git_branch() {
     fi
 
     local NUM_NG=$STATE_MAP[AL]
+    if [[ -n $NUM_NG ]]; then
+      GIT_PROMPT_BRANCH="%B%F{yellow}"
+      PROMPT_BRANCH_ICON=$GIT_PROMPT_DIRTY
+    fi
+
+    local NUM_NG=$STATE_MAP[AM]
+    if [[ -n $NUM_NG ]]; then
+      GIT_PROMPT_BRANCH="%B%F{yellow}"
+      PROMPT_BRANCH_ICON=$GIT_PROMPT_DIRTY
+    fi
+
+    local NUM_NG=$STATE_MAP[AD]
     if [[ -n $NUM_NG ]]; then
       GIT_PROMPT_BRANCH="%B%F{yellow}"
       PROMPT_BRANCH_ICON=$GIT_PROMPT_DIRTY
