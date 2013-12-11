@@ -84,7 +84,7 @@ function dto {
 
 function dpl {
     sudo rm -rf /opt/tomcat/{work,temp,activemq-data,logs}/*(N)
-    if [ `ls -1 **/*.war` -gt 1 ];
+    if [[ -n $(ls -1 **/*.war) ]];
     then
         for i in $(ls /opt/tomcat/webapps/*.war)
         do
