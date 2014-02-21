@@ -27,6 +27,7 @@
     graph = log --graph --pretty=format':%C(yellow)%h%Cgreen%d%Creset %s %C(white) %an, %ar%Creset'
     standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
     sbco = submodule foreach git checkout
+    tryrs = "!f() { git submodule foreach \"git checkout $1 && git reset --hard origin/$1 || :\" ; }; f"
     trysbco = "!f() { git submodule foreach \"git checkout $1 || :\" ; }; f"
     sbcoup = "!f() { git submodule foreach \"git checkout $1 && git fetch && git pull origin $1 || :\"; }; f"
     trysbcoup = "!f() { git submodule foreach \"git fetch && git checkout $1 && git pull origin $1 || :\" ; }; f"

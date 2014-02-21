@@ -156,7 +156,7 @@ parse_git_state() {
     local NUM_BOTH=$STATE_MAP[UU]
     if [[ -n $NUM_BOTH ]]; then
       GIT_STATE=$GIT_STATE$GIT_PROMPT_BOTH$NUM_BOTH
-    fi    
+    fi
 
     local NUM_NG=$STATE_MAP[AL]
     if [[ -n $NUM_NG ]]; then
@@ -225,7 +225,7 @@ parse_git_branch() {
 
     local NUM_AHEAD=$DIFF_COM[2]
     if [ "$NUM_AHEAD" -gt 0 ]; then
-      DIFF=$GIT_PROMPT_AHEAD$NUM_AHEAD
+      DIFF=$DIFF$GIT_PROMPT_AHEAD$NUM_AHEAD
     fi
 
     # L is used as a padding since there is no status code L and ' A' is not the same as 'A '
