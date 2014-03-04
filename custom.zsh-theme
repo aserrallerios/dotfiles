@@ -110,7 +110,7 @@ GIT_PROMPT_RENAMED="%{$fg_bold[blue]%}➜%{$reset_color%}"
 GIT_PROMPT_DELETE="%{$fg_bold[yellow]%}✖%{$reset_color%}"
 GIT_PROMPT_NDELETE="%{$fg_bold[red]%}✖%{$reset_color%}"
 
-GIT_PROMPT_STASH="%{$fg_bold[blue]%}⚒%{$reset_color%}"
+GIT_PROMPT_STASH="%{$fg_bold[blue]%}✎%{$reset_color%}"
 
 
 # Show Git branch/tag, or name-rev if on detached head
@@ -188,12 +188,6 @@ parse_git_state() {
       GIT_STATE=$GIT_STATE$GIT_PROMPT_RENAMED$NUM_REN
     fi
 
-    if [[ -f ".git/refs/stash" ]]; then
-      local LIST=${=$(git stash list 2> /dev/null | wc -l)}
-      if [[ "$LIST" -gt 0 ]]; then
-        GIT_STATE=$GIT_STATE$GIT_PROMPT_STASH$LIST
-      fi
-    fi
   fi
 
   if [[ -n $GIT_STATE ]]; then
@@ -301,7 +295,13 @@ parse_git_branch() {
     fi
   fi
 
-  echo "$GIT_PROMPT_PREFIX_BRANCH$GIT_PROMPT_BRANCH$BRANCH$PROMPT_BRANCH_ICON$DIFF$GIT_PROMPT_SUFFIX_BRANCH"
+  local STASH_NO=""
+  local STASH="$(git stash list 2> /dev/null | wc -l)"
+  if [[ "$STASH" -gt 0 ]]; then
+     STASH_NO=$GIT_PROMPT_STASH$STASH
+  fi
+
+  echo "$GIT_PROMPT_PREFIX_BRANCH$GIT_PROMPT_BRANCH$BRANCH$PROMPT_BRANCH_ICON$DIFF$GIT_PROMPT_SUFFIX_BRANCH$STASH_NO"
 }
 
 # If inside a Git repository, print its branch and state
