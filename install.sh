@@ -20,5 +20,5 @@ ln -s ~/dotfiles/gitignore ~/.gitignore
 ln -s ~/dotfiles/zsh ~/.zsh
 
 mkdir ~/.oh-my-zsh/custom/themes 2> /dev/null
-ln -s ~/dotfiles/custom.zsh-theme ~/.oh-my-zsh/custom.zsh-theme
+ln -s ~/dotfiles/custom.zsh-theme ~/.oh-my-zsh/custom/themes/custom.zsh-theme
 source ~/.zshrc

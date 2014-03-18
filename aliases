@@ -32,3 +32,4 @@ alias -g gp='| grep  '
 alias -s rb=vim
 alias -s log='less -MN'
 
+alias -g clip='| xclip -selection clipboard'

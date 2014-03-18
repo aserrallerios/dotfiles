@@ -1,6 +1,8 @@
 [user]
     name = Albert Serrallé
     email = aserrallerios@gmail.com
+[credential]
+    helper = cache --timeout=600
 [color]
     status = always
     interactive = always
