@@ -15,9 +15,6 @@ export MAVEN_OPTS="-Xms140m -XX:PermSize=140m -XX:MaxPermSize=441m -Xmx1024m -XX
 export JAVA_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=8084"
 export JAVA_DEBUG_SUSPEND="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8084"
 
-# Bugfix for menus not showing in Eclipse (Ubuntu 13.10 64bit)
-export UBUNTU_MENUPROXY=0
-
 export DRIP_SHUTDOWN=30
 export EDITOR=vim
 
