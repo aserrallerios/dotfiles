@@ -1,7 +1,6 @@
 # custom exports
-export JAVA_HOME=/usr/lib/jvm/java-7-oracle
 export M2_HOME=/usr/local/maven
-export CATALINA_HOME=/usr/local/tomcat
+export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=$CATALINA_HOME
 
 export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:$HOME/opt/clojure-contrib/launchers/bash
