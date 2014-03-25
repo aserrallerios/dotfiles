@@ -27,6 +27,9 @@ alias lsfull="ls -halF"
 
 alias jsonformat="python -mjson.tool"
 
+alias netstatl="netstat -lnptu"
+alias lsofil="lsof -i -n | egrep 'COMMAND|LISTEN'"
+
 # ZSH
 alias -g gp='| grep  '
 alias -s rb=vim
