@@ -31,7 +31,7 @@ alias netstatl="netstat -lnptu"
 alias lsofil="lsof -i -n | egrep 'COMMAND|LISTEN'"
 
 # ZSH
-alias -g gp='| grep  '
+alias -g gp=' | grep -i  '
 alias -s rb=vim
 alias -s log='less -MN'
 
