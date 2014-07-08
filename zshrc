@@ -56,4 +56,5 @@ zstyle ':completion:*' special-dirs true
 setopt NO_SHARE_HISTORY
 autoload -U zmv
 autoload -U zcp
-
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
