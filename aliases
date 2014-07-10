@@ -39,7 +39,7 @@ alias -s log='less -MN'
 alias -g clip='| xclip -selection clipboard'
 alias -g localbdtests='-DDATABASE_SCHEMA=nsm2_test -DDATABASE_PASSWORD=password -DDATABASE_HOST=localhost -DDATABASE_USER=nsm2 -Dnq.sql.ConnectionFactory=nq.sql.LocalConnectionFactory -Dnq.ejb.Factory=nq.ejb.POJOFactory'
 alias -g skipts="-DskipTests"
-alias cpppi='scp ./**/ppi-ear-*.ear root@10.150.0.30:/usr/share/jboss-as/standalone/deployments/'
-alias cpsm2="scp ./**/sm2-ear-*.ear root@10.150.0.20:/usr/share/jboss-as/standalone/deployments/"
+alias cpppi='scp ../**/ppi-ear-*.ear root@10.150.0.30:/usr/share/jboss-as/standalone/deployments/'
+alias cpsm2="scp ../**/sm2-ear-*.ear root@10.150.0.20:/usr/share/jboss-as/standalone/deployments/"
 alias cpbatch='scp ./**/batch-*.ear root@10.150.0.30:/usr/share/jboss-as/standalone/deployments/'
 alias -g dbgside='-J-Xdebug -J-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9000'

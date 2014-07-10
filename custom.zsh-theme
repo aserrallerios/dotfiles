@@ -29,7 +29,7 @@ RESET_COLOR=$reset_color
 # More symbols to choose from:
 # ☀ ✹ ☄ ♆ ♀ ♁ ♐ ♇ ♈ ♉ ♚ ♛ ♜ ♝ ♞ ♟ ♠ ♣ ⚢ ⚲ ⚳ ⚴ ⚥ ⚤ ⚦ ⚒ ⚑ ⚐ ♺ ♻ ♼ ☰ ☱ ☲ ☳ ☴ ☵ ☶ ☷
 # ✡ ✔ ✖ ✚ ✱ ✤ ✦ ❤ ➜ ➟ ➼ ✂ ✎ ✐ ⨀ ⨁ ⨂ ⨍ ⨎ ⨏ ⨷ ⩚ ⩛ ⩡ ⩱ ⩲ ⩵  ⩶ ⨠
-# ⬅ ⬆ ⬇ ⬈ ⬉ ⬊ ⬋ ⬒ ⬓ ⬔ ⬕ ⬖ ⬗ ⬘ ⬙ ⬟  ⬤ 〒 ǀ ǁ ǂ ĭ Ť Ŧ
+# ⬅ ⬆ ⬇ ⬈ ⬉ ⬊ ⬋ ⬒ ⬓ ⬔ ⬕ ⬖ ⬗ ⬘ ⬙ ⬟  ⬤ 〒 ǀ ǁ ǂ ĭ Ť Ŧ   ➭
 
 # Determine if we are using a gemset.
 function rvm_gemset() {
@@ -38,6 +38,25 @@ function rvm_gemset() {
         echo "%{$fg[yellow]%}$GEMSET%{$reset_color%}|"
     fi
 }
+
+CRUNCH_BRACKET_COLOR="%{$fg[white]%}"
+CRUNCH_TIME_COLOR="%{$fg[yellow]%}"
+CRUNCH_RVM_COLOR="%{$fg[magenta]%}"
+CRUNCH_DIR_COLOR="%{$fg[cyan]%}"
+CRUNCH_GIT_BRANCH_COLOR="%{$fg[green]%}"
+CRUNCH_GIT_CLEAN_COLOR="%{$fg[green]%}"
+CRUNCH_GIT_DIRTY_COLOR="%{$fg[red]%}"
+
+# Our elements:
+local CRUNCH_TIME_="$CRUNCH_BRACKET_COLOR{$CRUNCH_TIME_COLOR%T$CRUNCH_BRACKET_COLOR}%{$reset_color%}"
+if [ -e ~/.rvm/bin/rvm-prompt ]; then
+      CRUNCH_RVM_="$CRUNCH_BRACKET_COLOR"["$CRUNCH_RVM_COLOR\${\$(~/.rvm/bin/rvm-prompt i v g)#ruby-}$CRUNCH_BRACKET_COLOR"]"%{$reset_color%}"
+   else
+   if which rbenv &> /dev/null; then
+      CRUNCH_RVM_="$CRUNCH_BRACKET_COLOR"["$CRUNCH_RVM_COLOR\${\$(rbenv version | sed -e 's/ (set.*$//' -e 's/^ruby-//')}$CRUNCH_BRACKET_COLOR"]"%{$reset_color%}"
+   fi
+fi
+
 
 # if superuser make the username green
 if [ $UID -eq 0 ]; then NCOLOR="yellow"; else NCOLOR="red"; fi
@@ -54,7 +73,7 @@ local pwd="%{$fg_bold[blue]%}%30<...<%~%<<%{$reset_color%}"
 
 # The prompt
 setopt prompt_subst
-PROMPT='${user}@${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$reset_color%} '
+PROMPT='$CRUNCH_TIME_${user}@${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$reset_color%} '
 # Add this at the start of RPROMPT to include rvm info showing ruby-version@gemset-name
 # %{$fg[yellow]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}
 
@@ -62,7 +81,7 @@ PROMPT='${user}@${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$reset
 local return_code="%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
 
 # The right-hand prompt
-RPROMPT='%{$reset_color%}${return_code}$(git_prompt_string)$(git_prompt_short_sha)%{$reset_color%}'
+RPROMPT='%{$reset_color%}${return_code}$(git_prompt_string)$(git_prompt_short_sha)%{$reset_color%}$CRUNCH_RVM_'
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}(%{$fg[white]%}"
