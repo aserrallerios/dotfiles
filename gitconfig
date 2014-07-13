@@ -1,6 +1,6 @@
 [user]
-    name = Albert Serrallé
-    email = aserrallerios@gmail.com
+	name = Albert Serrallé Ríos
+	email = aserrallerios@gmail.com
 [credential]
     helper = cache --timeout=600
 [color]

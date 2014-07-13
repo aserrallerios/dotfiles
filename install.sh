@@ -7,7 +7,6 @@ mv ~/.vimrc ~/.vimrc_old
 mv ~/.vim ~/.vim_old
 mv ~/.gitconfig ~/.gitconfig_old
 mv ~/.gitignore ~/.gitignore_old
-mv ~/.zsh ~/.zsh_old
 
 ln -s ~/dotfiles/zshrc ~/.zshrc
 ln -s ~/dotfiles/aliases ~/.aliases
@@ -17,7 +16,6 @@ ln -s ~/dotfiles/vimrc ~/.vimrc
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/gitconfig ~/.gitconfig
 ln -s ~/dotfiles/gitignore ~/.gitignore
-ln -s ~/dotfiles/zsh ~/.zsh
 
 ln -s ~/dotfiles/oh-my-zsh ~/.oh-my-zsh
 mkdir ~/.oh-my-zsh/custom/themes 2> /dev/null
