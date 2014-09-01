@@ -6,28 +6,28 @@
 	url = git://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/colorschemes"]
 	path = vim/bundle/colorschemes
-	url = git@github.com:flazz/vim-colorschemes.git
+	url = https://github.com/flazz/vim-colorschemes.git
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
 [submodule "vim/bundle/ctags"]
 	path = vim/bundle/ctags
-	url = git://github.com/fishman/ctags.git
+	url = https://github.com/fishman/ctags.git
 [submodule "vim/bundle/ctagsvim"]
-	path = vim/bundle/ctagsvim
-	url = git://github.com/vim-scripts/ctagsvim.git
+	path = vim/bundle/ctags.vim
+	url = https://github.com/vim-scripts/ctags.vim.git
 [submodule "vim/bundle/taglistvim"]
-	path = vim/bundle/taglistvim
-	url = git://github.com/vim-scripts/taglistvim.git
+	path = vim/bundle/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = git://github.com/klen/python-mode.git
 [submodule "vim/bundle/minibufexpl"]
 	path = vim/bundle/minibufexpl
-	url = git://github.com/fholgado/minibufexplvim.git
+	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "vim/bundle/commentsvim"]
-	path = vim/bundle/commentsvim
-	url = git@github.com:ssedano/commentsvim.git
+	path = vim/bundle/comments.vim
+	url = https://github.com/ssedano/comments.vim.git
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
@@ -38,8 +38,8 @@
 	path = vim/bundle/vim-clojure-static
 	url = git://github.com/guns/vim-clojure-static.git
 [submodule "vim/bundle/rainbow_parenthesesvim"]
-	path = vim/bundle/rainbow_parenthesesvim
-	url = https://github.com/kien/rainbow_parenthesesvim
+	path = vim/bundle/rainbow_parentheses.vim
+	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule "vim/bundle/vim-classpath"]
 	path = vim/bundle/vim-classpath
 	url = https://github.com/tpope/vim-classpath
@@ -54,13 +54,10 @@
 	url = git://github.com/tpope/vim-endwise.git
 [submodule "vim/bundle/Pydiction"]
 	path = vim/bundle/Pydiction
-	url = git@github.com:ssedano/Pydiction.git
-[submodule "vim/bundle/tcomment_vim"]
-	path = vim/bundle/tcomment_vim
-	url = git@github.com:ssedano/tcomment_vim.git
+	url = git://github.com/rkulla/pydiction.git
 [submodule "vim/bundle/vim-fireplace"]
 	path = vim/bundle/vim-fireplace
-	url = git@github.com:tpope/vim-fireplace
+	url = https://github.com/tpope/vim-fireplace
 [submodule "vim/bundle/vim-ruby-debugger"]
 	path = vim/bundle/vim-ruby-debugger
 	url = git://github.com/astashov/vim-ruby-debugger.git
@@ -82,39 +79,21 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/vim-pathogen"]
-	path = vim/bundle/vim-pathogen
-	url = git@github.com:tpope/vim-pathogen.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
-[submodule "vim/bundle/jedi-vim"]
-	path = vim/bundle/jedi-vim
-	url = git@github.com:davidhalter/jedi-vim.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
-[submodule "vim/bundle/vim-airline"]
-	path = vim/bundle/vim-airline
-	url = git@github.com:bling/vim-airline.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
-[submodule "vim/bundle/vim-sensible"]
-	path = vim/bundle/vim-sensible
-	url = git@github.com:tpope/vim-sensible.git
 [submodule "vim/bundle/xmledit"]
 	path = vim/bundle/xmledit
-	url = git@github.com:sukima/xmledit.git
+	url = https://github.com/sukima/xmledit.git
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
-	url = git@github.com:Townk/vim-autoclose.git
+	url = https://github.com/Townk/vim-autoclose.git
 [submodule "vim/bundle/tcomment"]
-	path = vim/bundle/tcomment
-	url = git@github.com:tomtom/tcomment_vim.git
+	path = vim/bundle/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "vim/bundle/bufexplorer"]
 	path = vim/bundle/bufexplorer
-	url = git@github.com:jlanzarotta/bufexplorer.git
+	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
-	url = git@github.com:mhinz/vim-signify.git
+	url = https://github.com/mhinz/vim-signify.git
