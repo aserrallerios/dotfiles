@@ -43,3 +43,4 @@ alias cpppi='scp ../**/ppi-ear-*.ear root@10.150.0.30:/usr/share/jboss-as/standa
 alias cpsm2="scp ../**/sm2-ear-*.ear root@10.150.0.20:/usr/share/jboss-as/standalone/deployments/"
 alias cpbatch='scp ./**/batch-*.ear root@10.150.0.30:/usr/share/jboss-as/standalone/deployments/'
 alias -g dbgside='-J-Xdebug -J-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9000'
+alias -g jmxside='-J-Dcom.sun.management.jmxremote -J-Dcom.sun.management.jmxremote.port=9010 -J-Dcom.sun.management.jmxremote.local.only=false -J-Dcom.sun.management.jmxremote.authenticate=false -J-Dcom.sun.management.jmxremote.ssl=false'

@@ -25,4 +25,4 @@ export P4CLIENT=aserralle.PTBCN68
 export P4HOME=/home/aserralle/PTBCN68/
 export P4PASSWD=p3rforss
 
-export LESS="-rFnXME"
+export LESS="-rFnXM"

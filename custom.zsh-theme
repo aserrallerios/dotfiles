@@ -81,7 +81,7 @@ PROMPT='$CRUNCH_TIME_${user}@${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.
 local return_code="%(?..%{$fg[red]%}%? ↵ %{$reset_color%})"
 
 # The right-hand prompt
-RPROMPT='%{$reset_color%}${return_code}$(git_prompt_string)$(git_prompt_short_sha)%{$reset_color%}$CRUNCH_RVM_'
+RPROMPT='%{$reset_color%}${return_code}$(git_prompt_string)$(git_prompt_short_sha)%{$reset_color%}'
 
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}(%{$fg[white]%}"
