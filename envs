@@ -17,6 +17,11 @@ export JAVA_DEBUG_SUSPEND="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspen
 export DRIP_SHUTDOWN=30
 export EDITOR=vim
 
+# GO lang
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 #Perforce config
 export P4CHARSET=utf8
 export P4PORT=p4server.netquest-apps.com:1666
