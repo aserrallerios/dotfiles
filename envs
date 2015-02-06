@@ -22,12 +22,8 @@ export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-#Perforce config
-export P4CHARSET=utf8
-export P4PORT=p4server.netquest-apps.com:1666
-export P4USER=perforce
-export P4CLIENT=aserralle.PTBCN68
-export P4HOME=/home/aserralle/PTBCN68/
-export P4PASSWD=p3rforss
-
 export LESS="-rFnXM"
+
+# Ruby rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

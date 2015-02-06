@@ -49,14 +49,10 @@ source ~/.envs
 source ~/.functions
 source ~/.aliases
 autoload select-word-style
-select-word-style shell
+select-word-style bash
 
 zstyle ':completion:*' special-dirs true
 
 setopt NO_SHARE_HISTORY
 autoload -U zmv
 autoload -U zcp
-
-# Ruby rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
