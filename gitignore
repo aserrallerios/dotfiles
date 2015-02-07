@@ -2,14 +2,12 @@
 .swp
 vim/backup
 vim/tmp
-
 *.class
-
 # Package Files #
 *.jar
 *.war
 *.ear
-
 */target/*
 target/*
 .*
+.httr-oauth

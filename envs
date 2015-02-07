@@ -3,7 +3,7 @@ export M2_HOME=/usr/local/maven
 export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=$CATALINA_HOME
 
-export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:$HOME/opt/clojure-contrib/launchers/bash
+export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:/opt/activator-1.2.10
 export JYTHONPATH=/home/ssedano/projects/kahuna
 
 export M2_REPO=~/.m2/repository
@@ -18,7 +18,7 @@ export DRIP_SHUTDOWN=30
 export EDITOR=vim
 
 # GO lang
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:~/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
