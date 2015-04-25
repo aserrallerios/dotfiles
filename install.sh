@@ -1,4 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/zsh
+
+git submodule update --init
+
 mv ~/.zshrc ~/.zshrc_old
 mv ~/.aliases ~/.aliases_old
 mv ~/.envs ~/.envs_old
