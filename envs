@@ -3,7 +3,7 @@ export M2_HOME=/usr/local/maven
 export CATALINA_HOME=/opt/tomcat
 export CATALINA_BASE=$CATALINA_HOME
 
-export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:/opt/activator-1.2.10
+export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:/usr/local/activator
 export JYTHONPATH=/home/ssedano/projects/kahuna
 
 export M2_REPO=~/.m2/repository

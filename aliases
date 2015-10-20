@@ -30,6 +30,7 @@ alias jsonformat="python -mjson.tool"
 alias netstatl="netstat -lnptu"
 alias lsofil="lsof -i -n | egrep 'COMMAND|LISTEN'"
 alias nmap-discover='sudo nmap -PR -sP 192.168.1.0/24'
+alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 
 # ZSH
 alias -g gp=' | grep -i  '
