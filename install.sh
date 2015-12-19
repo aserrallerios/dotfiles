@@ -2,31 +2,39 @@
 
 git submodule update --init
 
-mv ~/.zshrc ~/.zshrc_old
-mv ~/.aliases ~/.aliases_old
-mv ~/.envs ~/.envs_old
-mv ~/.functions ~/.functions_old
-mv ~/.vimrc ~/.vimrc_old
-mv ~/.vim ~/.vim_old
-mv ~/.gitconfig ~/.gitconfig_old
-mv ~/.gitignore ~/.gitignore_old
+DOTFILES_FOLDER = $HOME/dotfiles
 
-ln -s ~/dotfiles/zshrc ~/.zshrc
-ln -s ~/dotfiles/aliases ~/.aliases
-ln -s ~/dotfiles/envs ~/.envs
-ln -s ~/dotfiles/functions ~/.functions
-ln -s ~/dotfiles/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim ~/.vim
-ln -s ~/dotfiles/gitconfig ~/.gitconfig
-ln -s ~/dotfiles/gitignore ~/.gitignore
+mv $HOME/.zshrc $HOME/.zshrc_old
+mv $HOME/.aliases $HOME/.aliases_old
+mv $HOME/.envs $HOME/.envs_old
+mv $HOME/.functions $HOME/.functions_old
+mv $HOME/.vimrc $HOME/.vimrc_old
+mv $HOME/.vim $HOME/.vim_old
+mv $HOME/.gitconfig $HOME/.gitconfig_old
+mv $HOME/.gitignore $HOME/.gitignore_old
 
-ln -s ~/dotfiles/oh-my-zsh ~/.oh-my-zsh
-mkdir ~/.oh-my-zsh/custom/themes 2> /dev/null
-ln -s ~/dotfiles/custom.zsh-theme ~/.oh-my-zsh/themes/custom.zsh-theme
+ln -s $DOTFILES_FOLDER/zshrc $HOME/.zshrc
+ln -s $DOTFILES_FOLDER/aliases $HOME/.aliases
+ln -s $DOTFILES_FOLDER/envs $HOME/.envs
+ln -s $DOTFILES_FOLDER/functions $HOME/.functions
+ln -s $DOTFILES_FOLDER/vimrc $HOME/.vimrc
+ln -s $DOTFILES_FOLDER/vim $HOME/.vim
+ln -s $DOTFILES_FOLDER/gitconfig $HOME/.gitconfig
+ln -s $DOTFILES_FOLDER/gitignore $HOME/.gitignore
 
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+mv $HOME/.config/terminator $HOME/.config/terminator_old
+ln -s $DOTFILES_FOLDER/config/terminator $HOME/.config/
 
-source ~/.zshrc
+mv $HOME/.zsh_history $HOME/.zsh_history_old
+ln -sf $DOTFILES_FOLDER/zsh_history $HOME/.zsh_history
+
+ln -s $DOTFILES_FOLDER/oh-my-zsh $HOME/.oh-my-zsh
+mkdir $HOME/.oh-my-zsh/custom/themes 2> /dev/null
+ln -s $DOTFILES_FOLDER/custom.zsh-theme $HOME/.oh-my-zsh/themes/custom.zsh-theme
+
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+
+source $HOME/.zshrc
 chsh -s `which zsh`
 
