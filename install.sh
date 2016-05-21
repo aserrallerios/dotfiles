@@ -32,9 +32,8 @@ ln -s $DOTFILES_FOLDER/oh-my-zsh $HOME/.oh-my-zsh
 mkdir $HOME/.oh-my-zsh/custom/themes 2> /dev/null
 ln -s $DOTFILES_FOLDER/custom.zsh-theme $HOME/.oh-my-zsh/themes/custom.zsh-theme
 
-git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+ln -s $DOTFILES_FOLDER/rbenv $HOME/.rbenv
+ln -s $DOTFILES_FOLDER/ruby-build $HOME/.rbenv/plugins/ruby-build
 
 source $HOME/.zshrc
 chsh -s `which zsh`
-
