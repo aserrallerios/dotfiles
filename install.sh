@@ -2,7 +2,8 @@
 
 git submodule update --init
 
-DOTFILES_FOLDER = $HOME/dotfiles
+SCRIPT=`realpath $0`
+DOTFILES_FOLDER=`dirname $SCRIPT`
 
 mv $HOME/.zshrc $HOME/.zshrc_old
 mv $HOME/.aliases $HOME/.aliases_old
@@ -30,9 +31,10 @@ ln -sf $DOTFILES_FOLDER/zsh_history $HOME/.zsh_history
 
 ln -s $DOTFILES_FOLDER/oh-my-zsh $HOME/.oh-my-zsh
 mkdir $HOME/.oh-my-zsh/custom/themes 2> /dev/null
-ln -s $DOTFILES_FOLDER/custom.zsh-theme $HOME/.oh-my-zsh/themes/custom.zsh-theme
+ln -s $DOTFILES_FOLDER/custom.zsh-theme $HOME/.oh-my-zsh/custom/themes/custom.zsh-theme
 
 ln -s $DOTFILES_FOLDER/rbenv $HOME/.rbenv
+mkdir $HOME/.rbenv/plugins
 ln -s $DOTFILES_FOLDER/ruby-build $HOME/.rbenv/plugins/ruby-build
 
 source $HOME/.zshrc

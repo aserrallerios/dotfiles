@@ -1,7 +1,5 @@
 # JVM stuff
-export M2_HOME=/usr/local/maven
-export PATH=$PATH:$HOME/.rvm/bin:$M2_HOME/bin:/usr/local/activator
-export M2_REPO=~/.m2/repository
+export PATH=$PATH:$HOME/.rvm/bin
 export JARS_HOME=~/jars
 export CLOJURE_EXT=~/.clojure
 export MAVEN_OPTS="-Xms140m -XX:PermSize=140m -XX:MaxPermSize=441m -Xmx1024m -XX:+UseNUMA -XX:+UseCompressedOops"
@@ -34,3 +32,6 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 # android
 export ANDROID_HOME="${HOME}/android-sdk-linux"
 export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$ANDROID_HOME/build-tools/android-4.4:$PATH"
+
+# sdkman
+source "$HOME/.sdkman/bin/sdkman-init.sh"

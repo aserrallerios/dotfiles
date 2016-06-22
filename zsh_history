@@ -1,7 +1,0 @@
-: 1448556381:0;mkdir Dropbox/dotfiles
-: 1448556405:0;cat Dropbox/zsh_history
-: 1448556419:0;mv Dropbox/zsh_history Dropbox/dotfiles
-: 1448556449:0;lsfull .zsh_history
-: 1448556453:0;cd dotfiles
-: 1448556453:0;lsfull
-: 1448556503:0;ln -sf ~/Dropbox/dotfiles/zsh_history ~/.zsh_history

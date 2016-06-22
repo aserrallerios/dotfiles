@@ -73,7 +73,8 @@ local pwd="%{$fg_bold[blue]%}%30<...<%~%<<%{$reset_color%}"
 
 # The prompt
 setopt prompt_subst
-PROMPT='$CRUNCH_TIME_${user}@${host}${pwd}$(git_branch_string)%{$fg[white]%}%(!.#.»)%{$reset_color%} '
+PROMPT='╭─$CRUNCH_TIME_${user}@${host}${pwd}$(git_branch_string)
+╰─%{$fg[white]%}%(!.#.»)%{$reset_color%} '
 # Add this at the start of RPROMPT to include rvm info showing ruby-version@gemset-name
 # %{$fg[yellow]%}$(~/.rvm/bin/rvm-prompt)%{$reset_color%}
 

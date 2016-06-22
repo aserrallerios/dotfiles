@@ -1,22 +1,22 @@
 [global_config]
   enabled_plugins = CustomCommandsMenu, InactivityWatch, TestPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, MavenPluginURLHandler, LaunchpadBugURLHandler
 [keybindings]
-[profiles]
-  [[default]]
-    background_image = None
-    font = Ubuntu 12
-    background_darkness = 0.66
-    background_type = transparent
-    scroll_on_output = False
-    show_titlebar = False
-    copy_on_selection = True
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.66
+    background_image = None
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#aaaaaa"
+    font = Ubuntu 12
+    scrollback_infinite = True
+    show_titlebar = False
