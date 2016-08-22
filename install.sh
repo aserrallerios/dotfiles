@@ -23,6 +23,8 @@ ln -s $DOTFILES_FOLDER/vim $HOME/.vim
 ln -s $DOTFILES_FOLDER/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_FOLDER/gitignore $HOME/.gitignore
 
+wget https://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/linux/amd64/kubectl -O $HOME/bin
+
 mv $HOME/.config/terminator $HOME/.config/terminator_old
 ln -s $DOTFILES_FOLDER/config/terminator $HOME/.config/
 
