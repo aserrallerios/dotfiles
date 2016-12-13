@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/bin/bash
 
 git submodule update --init
 
@@ -22,6 +22,8 @@ ln -s $DOTFILES_FOLDER/vimrc $HOME/.vimrc
 ln -s $DOTFILES_FOLDER/vim $HOME/.vim
 ln -s $DOTFILES_FOLDER/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_FOLDER/gitignore $HOME/.gitignore
+
+# wget https://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/linux/amd64/kubectl -O $HOME/bin
 
 ln -s $DOTFILES_FOLDER/oh-my-zsh $HOME/.oh-my-zsh
 mkdir $HOME/.oh-my-zsh/custom/themes 2> /dev/null
