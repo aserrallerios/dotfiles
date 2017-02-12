@@ -103,3 +103,24 @@
 [submodule "ruby-build"]
 	path = ruby-build
 	url = https://github.com/sstephenson/ruby-build.git
+[submodule "dircolors-solarized"]
+	path = dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized
+[submodule "zsh/zsh-completions"]
+	path = zsh/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule "zsh/zsh-syntax-highlighting"]
+	path = zsh/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/zsh-autosuggestions"]
+	path = zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/antigen"]
+	path = zsh/antigen
+	url = https://github.com/zsh-users/antigen
+[submodule "fonts"]
+	path = fonts
+	url = https://github.com/powerline/fonts
+[submodule "terminator/TerminatorPlugins"]
+	path = terminator/TerminatorPlugins
+	url = https://github.com/camillo/TerminatorPlugins

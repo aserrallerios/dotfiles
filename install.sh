@@ -14,6 +14,8 @@ mv $HOME/.vim $HOME/.vim_old
 mv $HOME/.gitconfig $HOME/.gitconfig_old
 mv $HOME/.gitignore $HOME/.gitignore_old
 
+mv $HOME/.config/terminator $HOME/.config/terminator_old
+
 ln -s $DOTFILES_FOLDER/zshrc $HOME/.zshrc
 ln -s $DOTFILES_FOLDER/aliases $HOME/.aliases
 ln -s $DOTFILES_FOLDER/envs $HOME/.envs
@@ -23,14 +25,19 @@ ln -s $DOTFILES_FOLDER/vim $HOME/.vim
 ln -s $DOTFILES_FOLDER/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_FOLDER/gitignore $HOME/.gitignore
 
-# wget https://storage.googleapis.com/kubernetes-release/release/v1.3.0/bin/linux/amd64/kubectl -O $HOME/bin
-
 ln -s $DOTFILES_FOLDER/oh-my-zsh $HOME/.oh-my-zsh
 mkdir $HOME/.oh-my-zsh/custom/themes 2> /dev/null
 ln -s $DOTFILES_FOLDER/custom.zsh-theme $HOME/.oh-my-zsh/custom/themes/custom.zsh-theme
+mkdir $HOME/.oh-my-zsh/custom/plugins 2> /dev/null
+ln -s $DOTFILES_FOLDER/zsh/zsh-completions $HOME/.oh-my-zsh/custom/plugins/zsh-completions
 
 ln -s $DOTFILES_FOLDER/rbenv $HOME/.rbenv
 mkdir $HOME/.rbenv/plugins
 ln -s $DOTFILES_FOLDER/ruby-build $HOME/.rbenv/plugins/ruby-build
 
+# TODO move to dev-env
 chsh -s `which zsh`
+mkdir $HOME/.config/terminator 2> /dev/null
+ln -s $DOTFILES_FOLDER/terminator/config $HOME/.config/terminator/config
+ln -s $DOTFILES_FOLDER/terminator/TerminatorPlugins/plugins $HOME/.config/terminator/plugins
+./fonts/install.sh
