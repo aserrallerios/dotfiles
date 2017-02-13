@@ -76,8 +76,8 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
@@ -97,11 +97,11 @@
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule "rbenv"]
-	path = rbenv
+[submodule "ruby/rbenv"]
+	path = ruby/rbenv
 	url = https://github.com/sstephenson/rbenv.git
-[submodule "ruby-build"]
-	path = ruby-build
+[submodule "ruby/ruby-build"]
+	path = ruby/ruby-build
 	url = https://github.com/sstephenson/ruby-build.git
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized

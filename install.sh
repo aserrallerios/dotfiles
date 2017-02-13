@@ -25,15 +25,22 @@ ln -s $DOTFILES_FOLDER/vim $HOME/.vim
 ln -s $DOTFILES_FOLDER/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_FOLDER/gitignore $HOME/.gitignore
 
-ln -s $DOTFILES_FOLDER/oh-my-zsh $HOME/.oh-my-zsh
+mkdir $HOME/.dir_colors 2> /dev/null
+ln -s $DOTFILES_FOLDER/dircolors-solarized/dircolors.256dark $HOME/.dir_colors/dircolors
+
+ln -s $DOTFILES_FOLDER/zsh/oh-my-zsh $HOME/.oh-my-zsh
 mkdir $HOME/.oh-my-zsh/custom/themes 2> /dev/null
-ln -s $DOTFILES_FOLDER/custom.zsh-theme $HOME/.oh-my-zsh/custom/themes/custom.zsh-theme
+ln -s $DOTFILES_FOLDER/zsh/custom.zsh-theme $HOME/.oh-my-zsh/custom/themes/custom.zsh-theme
+
+# TODO use antigen
 mkdir $HOME/.oh-my-zsh/custom/plugins 2> /dev/null
 ln -s $DOTFILES_FOLDER/zsh/zsh-completions $HOME/.oh-my-zsh/custom/plugins/zsh-completions
+ln -s $DOTFILES_FOLDER/zsh/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+ln -s $DOTFILES_FOLDER/zsh/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-ln -s $DOTFILES_FOLDER/rbenv $HOME/.rbenv
+ln -s $DOTFILES_FOLDER/ruby/rbenv $HOME/.rbenv
 mkdir $HOME/.rbenv/plugins
-ln -s $DOTFILES_FOLDER/ruby-build $HOME/.rbenv/plugins/ruby-build
+ln -s $DOTFILES_FOLDER/ruby/ruby-build $HOME/.rbenv/plugins/ruby-build
 
 # TODO move to dev-env
 chsh -s `which zsh`
