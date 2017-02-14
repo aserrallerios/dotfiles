@@ -1,0 +1,34 @@
+[x] solarized dirs
+  - https://github.com/seebi/dircolors-solarized
+[x] more zsh completions
+  - https://github.com/zsh-users/zsh-completions
+  - https://github.com/zsh-users/zsh-syntax-highlighting
+  - https://github.com/zsh-users/zsh-autosuggestions
+* https://github.com/zsh-users/antigen vs https://github.com/zplug/zplug
+* zsh dotfiles from:
+  - https://github.com/spicycode/ze-best-zsh-config/
+  - https://github.com/skwp/dotfiles
+  - https://github.com/thoughtbot/dotfiles
+* oh-my-zsh theme with powerline
+  - https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+  - https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
+  - https://github.com/bhilburn/powerlevel9k <- this looks pretty godd, also compatible with oh-my-zsh
+* python env controller
+[x] add rbenv
+* git config
+* global aliases (kubectl, etc)
+[x] autoenv https://github.com/kennethreitz/autoenv
+* tmux config
+* tmux powerline plugin
+    - https://powerline.readthedocs.io/en/latest/installation.html
+* tmux with plugins https://github.com/tmux-plugins/tpm
+* tmuxinator https://github.com/tmuxinator/tmuxinator
+
+Still don't know where to place:
+* https://www.sparkleshare.org/
+* intellij config
+* terminator config
+* sublime config
+* terminator groups & shit
+    - https://github.com/camillo/TerminatorPlugins
+* fonts

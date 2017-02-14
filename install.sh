@@ -24,6 +24,7 @@ ln -s $DOTFILES_FOLDER/vimrc $HOME/.vimrc
 ln -s $DOTFILES_FOLDER/vim $HOME/.vim
 ln -s $DOTFILES_FOLDER/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_FOLDER/gitignore $HOME/.gitignore
+ln -s $DOTFILES_FOLDER/autoenv $HOME/.autoenv
 
 mkdir $HOME/.dir_colors 2> /dev/null
 ln -s $DOTFILES_FOLDER/dircolors-solarized/dircolors.256dark $HOME/.dir_colors/dircolors
@@ -43,7 +44,6 @@ mkdir $HOME/.rbenv/plugins
 ln -s $DOTFILES_FOLDER/ruby/ruby-build $HOME/.rbenv/plugins/ruby-build
 
 # TODO move to dev-env
-chsh -s `which zsh`
 mkdir $HOME/.config/terminator 2> /dev/null
 ln -s $DOTFILES_FOLDER/terminator/config $HOME/.config/terminator/config
 ln -s $DOTFILES_FOLDER/terminator/TerminatorPlugins/plugins $HOME/.config/terminator/plugins
