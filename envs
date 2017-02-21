@@ -1,3 +1,7 @@
+# Yes, really
+export PATH=$PATH:~/.bin
+export PATH=$PATH:/sbin:/usr/sbin
+
 # JVM stuff
 export PATH=$PATH:$HOME/.rvm/bin
 export JARS_HOME=~/jars

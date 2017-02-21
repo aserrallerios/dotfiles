@@ -1,52 +1,18 @@
-# custom alias
-alias deploy='mvn clean install & mvn cargo:undeploy && mvn  cargo:deploy '
-
-alias mysqln='mysql -uroot -proot kinton'
-
-
-alias rabbitmq-reset='sudo rabbitmqctl stop_app && sudo rabbitmqctl reset && sudo rabbitmqctl start_app'
-
-alias mng='lynx target/surefire-reports/TestSuite.txt'
-alias mnf='lynx target/failsafe-reports/TestSuite.txt'
-alias mvnj='mvn clean package -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev jetty:run -o'
-alias gitt='GIT_TRACE=1 git'
-
-alias mvnn='mvn clean source:jar install -Dtest.suite=none -Dit.suite=none -Ddevmachine=10.60.1.253 -Dapi.location=http://10.60.1.253:80/api -Pdev'
-alias mvnl='mvn clean install -Dtest.suite=none -Dit.suite=none -Ddevmachine=localhost -Pdev -o'
-alias mvna='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev'
-alias mvnal='mvn clean install -Dtest.suite=all -Dit.suite=all -Ddevmachine=localhost -Pdev -o'
-
-alias mvnalt="mvn -gs ~/projects/m2/settings.xml"
-alias mvnnalt="mvnalt clean install -Dit.suite=none -Dtest.suite=none"
-alias mvnaalt="mvnalt clean install -Dit.suite=all -Dtest.suite=all"
-
-alias -g MVNDBGF=" -Dmaven.failsafe.debug  -Dwink.client.readTimeout=10000000 -Dwink.client.connectTimeout=1000000"
-
 alias psfull="ps auxfe"
-alias lsfull="ls -halF"
 
-alias jsonformat="python -mjson.tool"
+alias lsfull="ls -halF"
 
 alias netstatl="netstat -lnptu"
 alias lsofil="lsof -i -n | egrep 'COMMAND|LISTEN'"
 alias nmap-discover='sudo nmap -PR -sP 192.168.1.0/24'
 alias myip="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 
-# ZSH
-alias -g gp=' | grep -i  '
-alias -s rb=vim
-alias -s log='less -MN'
-
-# NQ
 alias -g clip='| xclip -selection clipboard'
-alias -g localbdtests='-DDATABASE_SCHEMA=nsm2_test -DDATABASE_PASSWORD=password -DDATABASE_HOST=localhost -DDATABASE_USER=nsm2 -Dnq.sql.ConnectionFactory=nq.sql.LocalConnectionFactory -Dnq.ejb.Factory=nq.ejb.POJOFactory'
-alias -g skipts="-DskipTests"
-alias cpppi='scp ../**/ppi-ear-*.ear root@10.150.0.30:/usr/share/jboss-as/standalone/deployments/'
-alias cpsm2="scp ../**/sm2-ear-*.ear root@10.150.0.20:/usr/share/jboss-as/standalone/deployments/"
-alias cpbatch='scp ./**/batch-*.ear root@10.150.0.30:/usr/share/jboss-as/standalone/deployments/'
-alias -g dbgside='-J-Xdebug -J-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9000'
-alias -g jmxside='-J-Dcom.sun.management.jmxremote -J-Dcom.sun.management.jmxremote.port=9010 -J-Dcom.sun.management.jmxremote.local.only=false -J-Dcom.sun.management.jmxremote.authenticate=false -J-Dcom.sun.management.jmxremote.ssl=false'
+alias -g gp=' | grep -i  '
 
-# docker
+alias -s html='firefox'
+alias -s log='less -MN'
+alias -s md=subl
+alias -s txt=subl
+
 alias docker-rmi-none="sudo docker rmi \`sudo docker images | grep none | cut -f1 -d$'\t'\`"
-

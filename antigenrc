@@ -1,0 +1,81 @@
+# Pass --no-local-clone to antigen's bundle to tell antigen to load the plugin
+# from /path/to/plugin rather than cloning it
+
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    # Bundles from the default repo (robbyrussell's oh-my-zsh)
+    autoenv
+    colored-man-pages
+    colorize
+    command-not-found
+    encode64
+    nmap
+    node
+    nyan
+    rake
+    rsync
+    sublime
+    fancy-ctrl-z
+    systemd
+    git
+    ruby
+    bower
+    bundler
+    ubuntu
+    pip
+    python
+    virtualenv
+    mvn
+    scala
+    sbt
+    gitignore
+    gitfast
+    git-flow
+    sudo
+    terminator
+    themes
+    tmux
+    tmuxinator
+    battery
+    urltools
+    jsontools
+    # npm
+    themes
+    zsh_reload
+    common-aliases
+    compleat
+    copydir
+    copyfile
+    cp
+    docker
+    docker-compose
+    encode64
+    gem
+    get-extras
+    git-hubflow
+    go
+    golang
+    gradle
+    grunt
+    history
+    history-substring-search
+    lein
+    rbenv
+    redis-cli
+    safe-paste
+    z
+    web-search
+
+    # Other important bundles! Mind the order!
+    jdavis/zsh-files
+    zsh-users/zsh-completions
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-history-substring-search
+    psprint/zsh-navigation-tools
+EOBUNDLES
+
+antigen theme bhilburn/powerlevel9k powerlevel9k
+
+antigen apply
