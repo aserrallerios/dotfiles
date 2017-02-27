@@ -63,7 +63,7 @@ antigen bundles <<EOBUNDLES
     lein
     rbenv
     redis-cli
-    safe-paste
+    # safe-paste # conflicts with zsh-completions
     z
     web-search
 

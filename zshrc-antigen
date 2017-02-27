@@ -20,6 +20,10 @@ source ~/dotfiles/powerlevel9k
 export _ANTIGEN_CACHE_ENABLED=true
 antigen init .antigenrc
 
+
+
+
+
 # more zsh stuff
 autoload select-word-style
 select-word-style bash
