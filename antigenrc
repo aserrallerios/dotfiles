@@ -63,9 +63,11 @@ antigen bundles <<EOBUNDLES
     lein
     rbenv
     redis-cli
-    # safe-paste # conflicts with zsh-completions
+    kubectl
     z
     web-search
+
+    # safe-paste # conflicts with zsh-completions
 
     # Other important bundles! Mind the order!
     jdavis/zsh-files
