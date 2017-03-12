@@ -1,60 +1,42 @@
 source $HOME/dotfiles/zsh/antigen/antigen.zsh
 
-# Colors before theme load
-export TERM=xterm-256color        # for common 256 color terminals (e.g. gnome-terminal)
-# export TERM=screen-256color       # for a tmux -2 session (also for screen)
-# export TERM=rxvt-unicode-256color # for a colorful rxvt unicode session
+# If your bundle do use compinit in some way remember to always refresh your .zcompdump file. The easiest way is to run:
+# rm ~/.zcompdump*
 
 # POWERLINE9K config before theme load
 source ~/dotfiles/powerlevel9k
-
-# If your bundle do use compinit in some way remember to always refresh your .zcompdump file. The easiest way is to run:
-# rm ~/.zcompdump*
-# Related?
-# autoload -U compinit && compinit
-
-# ANTIGEN_DEFAULT_REPO_URL=https://github.com/custom/oh-my-zsh
-# ADOTDIR=$HOME/antigen/plugins
 
 # Disable antigen's cache to always load latest changes from the plugin
 export _ANTIGEN_CACHE_ENABLED=true
 antigen init .antigenrc
 
-
-
-
+source ~/dotfiles/zsh/colors.zsh
+source ~/dotfiles/zsh/setopt.zsh
+source ~/dotfiles/zsh/exports.zsh
+source ~/dotfiles/zsh/completion.zsh
+source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/bindkeys.zsh
+source ~/dotfiles/zsh/functions.zsh
+source ~/dotfiles/zsh/history.zsh
 
 # more zsh stuff
 autoload select-word-style
 select-word-style bash
-zstyle ':completion:*' special-dirs true
-
-# history
-setopt NO_SHARE_HISTORY
 autoload -U zmv
 autoload -U zcp
 
 # dircolors
 eval `dircolors ~/.dir_colors/dircolors`
 
+source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
 # autoenv (use zsh-autoenv)
 # source ~/.autoenv/activate.sh
 
-# Customize to your needs...
-# source ~/.envs
-source ~/.functions
-source ~/.aliases
+#precmd() {
+#  if [[ -n "$TMUX" ]]; then
+#    tmux setenv "$(tmux display -p 'TMUX_PWD_#D')" "$PWD"
+#  fi
+#}
 
-# Source all the configs
-# source ~/.zsh/history.zsh
-# source ~/.zsh/sources.zsh
-# source ~/.zsh/functions.zsh
-# source ~/.zsh/aliases.zsh
-# source ~/.zsh/bindkeys.zsh
-# source ~/.zsh/exports.zsh
-# source ~/.zsh/colors.zsh
-# source ~/.zsh/setopt.zsh
-# if [ -e "$HOME/.zsh/local.zsh" ]; then # If local.zsh exists, source it
-#   source ~/.zsh/local.zsh
-# fi
-# source ~/.zsh/motd.zsh
+

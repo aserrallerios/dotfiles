@@ -5,7 +5,7 @@ antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
     # Bundles from the default repo (robbyrussell's oh-my-zsh)
-    autoenv
+    aws
     colored-man-pages
     colorize
     command-not-found
@@ -16,9 +16,8 @@ antigen bundles <<EOBUNDLES
     rake
     rsync
     sublime
-    fancy-ctrl-z
+    fancy-ctrl-zb
     systemd
-    git
     ruby
     bower
     bundler
@@ -29,9 +28,15 @@ antigen bundles <<EOBUNDLES
     mvn
     scala
     sbt
+    git
+    git-extras
+    github
     gitignore
     gitfast
     git-flow
+    git-prompt
+    git-remote-branch
+    git-hubflow
     sudo
     terminator
     themes
@@ -40,7 +45,6 @@ antigen bundles <<EOBUNDLES
     battery
     urltools
     jsontools
-    # npm
     themes
     zsh_reload
     common-aliases
@@ -52,8 +56,6 @@ antigen bundles <<EOBUNDLES
     docker-compose
     encode64
     gem
-    get-extras
-    git-hubflow
     go
     golang
     gradle
@@ -66,11 +68,31 @@ antigen bundles <<EOBUNDLES
     kubectl
     z
     web-search
+    npm
 
-    # safe-paste # conflicts with zsh-completions
+    # safe-paste # Conflicts with zsh-completions
+
+    Tarrasch/zsh-autoenv # Other autoenv alternatives: oh-my-zsh/autoenv vs zpm-zsh/autoenv
+
+    nobeans/zsh-sdkman
+
+    # Pugins suggested by unixorn/zsh-quickstart-kit
+    chrissicool/zsh-256color # Sets your terminal to 256 colors if available.
+    peterhurford/git-it-on.zsh # Opens your current repo on github, in your current branch.
+    rimraf/k # k is a directory lister that also shows git status on files & directories.
+    sharat87/pip-app # A set of shell functions to make it easy to install small apps and utilities distributed with pip.
+    skx/sysadmin-util # A collection of scripts useful for sysadmins.
+    RobSis/zsh-completion-generator # Adds tool to generate zsh completion functions for programs missing them by parsing their --help output. Note that this doesn't happen dynamically, you'll have to explicitly create a completion for each command you need one for.
+    srijanshetty/docker-zsh # Docker completions.
+    stackexchange/blackbox # Tom Limoncelli's tool for storing secret information in a repository with gnupg encryption, automatically decrypting as needed.
+    unixorn/bitbucket-git-helpers # Adds git helper scripts for bitbucket.
+    unixorn/git-extra-commands # Collected extra git helper scripts.
+    unixorn/rake-completion.zshplugin # Reads your Rakefile to tab complete the Rakefile targets.
+    unixorn/tumult.plugin.zsh # Adds macOS-specific functions and scripts. This plugin only adds itself to your $PATH if you're on macOS.
+    # djui/alias-tips # Warns you when you have an alias for the command you just typed, and tells you what it is.
+    # unixorn/jpb.zshplugin # Some of my standard aliases & functions.
 
     # Other important bundles! Mind the order!
-    jdavis/zsh-files
     zsh-users/zsh-completions
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-syntax-highlighting
