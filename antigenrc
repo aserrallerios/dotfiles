@@ -68,11 +68,11 @@ antigen bundles <<EOBUNDLES
     kubectl
     z
     web-search
-    npm
-
+    # npm # Fails to load properly
     # safe-paste # Conflicts with zsh-completions
 
     Tarrasch/zsh-autoenv # Other autoenv alternatives: oh-my-zsh/autoenv vs zpm-zsh/autoenv
+    molovo/tipz # Instead of djui/alias-tips
 
     nobeans/zsh-sdkman
 

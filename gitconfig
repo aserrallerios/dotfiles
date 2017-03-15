@@ -28,6 +28,7 @@
     last = log -10
     list = show --name-only
     ds = diff --staged
+    dsf = "!f() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFX; }; f"
     amend = !git commit --amend --date=\"$(date -R)\" -C HEAD
     ls = log --pretty=format:'%C(yellow)%h %C(green)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
     graph = log --graph --pretty=format':%C(yellow)%h%Cgreen%d%Creset %s %C(white) %an, %ar%Creset'
@@ -46,7 +47,7 @@
     excludesfile = ~/.gitignore
     autocrlf = false
     preloadindex = true
-    pager = less
+    pager = less --tabs=4 -RFX
 [rerere]
     # Remember my merges
     # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/

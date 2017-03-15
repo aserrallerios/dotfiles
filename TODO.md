@@ -1,19 +1,24 @@
 # DOING
 * zsh dotfiles + others
-  - https://github.com/jdavis/zsh-files
   - https://github.com/skwp/dotfiles
   - https://github.com/thoughtbot/dotfiles
   - https://github.com/holman/dotfiles
   - https://github.com/HeroCC/dotfiles <- nice shit
   - https://dotfiles.github.io/
-* more zsh completions & plugins
-  - https://github.com/unixorn/awesome-zsh-plugins
+* git & github:
+  - https://github.com/skwp/dotfiles
+  - https://github.com/arc90/git-sweep
+  - https://github.com/tj/git-extras
+  - https://github.com/unixorn/git-extra-commands
 
 # DONE
+* more zsh completions & plugins
+  - https://github.com/unixorn/awesome-zsh-plugins
 * autoenv vs zsh-autoenv
 * zsh dotfiles + others
   - https://github.com/unixorn/zsh-quickstart-kit
   - https://github.com/spicycode/ze-best-zsh-config
+  - https://github.com/jdavis/zsh-files
 * oh-my-zsh theme with powerline
   - https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
   - https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
@@ -31,15 +36,13 @@
     - https://github.com/unixorn/zsh-quickstart-kit
 
 # BACKLOG
-* git & github:
-  - https://github.com/skwp/dotfiles
-  - https://github.com/arc90/git-sweep
-  - https://github.com/tj/git-extras
-  - https://github.com/unixorn/git-extra-commands
+
+* My /*.zsh files as antigen plugin
 * user powerlevel9k with nerd-fonts:
   - https://github.com/ryanoasis/nerd-fonts
 * python env tool
 * tmux plugins
+    - https://github.com/jdavis/zsh-files
     - https://github.com/skwp/dotfiles
     - https://powerline.readthedocs.io/en/latest/installation.html
     - plugins https://github.com/tmux-plugins/tpm

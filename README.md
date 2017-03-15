@@ -1,4 +1,4 @@
-My dotfiles!
+# My dotfiles!
 
 Decissions, decissions... So what goes in here and what not? I'll try to make an exhaustive list of inclusion criterias. If *something* doesn't match *any* criteria, I'll have to find a better place for it. Let's go:
 
@@ -7,3 +7,9 @@ Decissions, decissions... So what goes in here and what not? I'll try to make an
 * Tools that come without an installer, usually as `github` repos.
 
 The idea is to automatically sync this repo (using `sparkleshare`?), so I won't need to use `Dropbox` anymore for this kind of stuff.
+
+## Resources
+
+### Zsh plugins
+
+* https://github.com/unixorn/awesome-zsh-plugins
