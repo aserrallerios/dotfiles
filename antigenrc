@@ -98,6 +98,9 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-history-substring-search
     psprint/zsh-navigation-tools
+
+    # Mi own customizations
+    aserrallerios/zsh-files
 EOBUNDLES
 
 antigen theme bhilburn/powerlevel9k powerlevel9k

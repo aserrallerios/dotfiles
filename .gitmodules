@@ -97,9 +97,6 @@
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
-[submodule "zsh/antigen"]
-	path = zsh/antigen
-	url = https://github.com/zsh-users/antigen
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts
@@ -109,3 +106,6 @@
 [submodule "awesome-terminal-fonts"]
 	path = awesome-terminal-fonts
 	url = https://github.com/gabrielelana/awesome-terminal-fonts
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen

@@ -1,4 +1,4 @@
-source $HOME/dotfiles/zsh/antigen/antigen.zsh
+source ~/dotfiles/antigen/antigen.zsh
 
 # If your bundle do use compinit in some way remember to always refresh your .zcompdump file. The easiest way is to run:
 # rm ~/.zcompdump*
@@ -6,21 +6,11 @@ source $HOME/dotfiles/zsh/antigen/antigen.zsh
 # POWERLINE9K config before theme load
 source ~/dotfiles/powerlevel9k
 
-TIPZ_TEXT='💡 '
+TIPZ_TEXT='⚑ '
 
 # Disable antigen's cache to always load latest changes from the plugin
 export _ANTIGEN_CACHE_ENABLED=true
-antigen init .antigenrc
-
-source ~/dotfiles/zsh/colors.zsh
-source ~/dotfiles/zsh/setopt.zsh
-source ~/dotfiles/zsh/exports.zsh
-source ~/dotfiles/zsh/completion.zsh
-source ~/dotfiles/zsh/zsh-aliases.zsh
-source ~/dotfiles/zsh/aliases.zsh
-source ~/dotfiles/zsh/bindkeys.zsh
-source ~/dotfiles/zsh/functions.zsh
-source ~/dotfiles/zsh/history.zsh
+antigen init ~/dotfiles/antigenrc
 
 # more zsh stuff
 autoload select-word-style
@@ -41,5 +31,3 @@ source "$SDKMAN_DIR/bin/sdkman-init.sh"
 #    tmux setenv "$(tmux display -p 'TMUX_PWD_#D')" "$PWD"
 #  fi
 #}
-
-
