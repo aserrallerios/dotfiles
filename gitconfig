@@ -1,6 +1,6 @@
 [user]
-	name = Albert Serrallé Ríos
-	email = aserrallerios@gmail.com
+    name = Albert Serrallé Ríos
+    email = aserrallerios@gmail.com
 [credential]
     helper = cache --timeout=600
 [color]
@@ -112,6 +112,7 @@
     # rebase
     rc = rebase --continue            # continue rebase
     rs = rebase --skip                # skip rebase
+    ra = rebase --abort               # abort rebase
 
     # remote
     r = remote -v                     # show remotes (verbose)
@@ -172,7 +173,7 @@
 [apply]
     whitespace = nowarn
 [branch]
-    autosetupmerge = true
+    autosetupmerge = always
 [push]
     # 'git push' will push the current branch to its tracking branch
     # the usual default is to push all branches

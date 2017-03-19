@@ -12,4 +12,7 @@ bindkey "[A"      history-search-backward              # up arrow
 bindkey "^D"      delete-char                          # ctrl-d
 bindkey "^F"      forward-char                         # ctrl-f
 bindkey "^B"      backward-char                        # ctrl-b
+bindkey "^U"      backward-kill-line
+bindkey "^K"      kill-whole-line
+
 bindkey -e   # Default to standard emacs bindings, regardless of editor string
