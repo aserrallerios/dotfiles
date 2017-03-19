@@ -106,9 +106,6 @@
 [submodule "terminator/TerminatorPlugins"]
 	path = terminator/TerminatorPlugins
 	url = https://github.com/camillo/TerminatorPlugins
-[submodule "autoenv"]
-	path = autoenv
-	url = https://github.com/kennethreitz/autoenv.git
 [submodule "awesome-terminal-fonts"]
 	path = awesome-terminal-fonts
 	url = https://github.com/gabrielelana/awesome-terminal-fonts
