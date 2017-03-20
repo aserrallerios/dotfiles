@@ -1,15 +1,16 @@
-source ~/dotfiles/antigen/antigen.zsh
-
 # If your bundle do use compinit in some way remember to always refresh your .zcompdump file. The easiest way is to run:
 # rm ~/.zcompdump*
 
 # POWERLINE9K config before theme load
 source ~/dotfiles/powerlevel9k
 
-TIPZ_TEXT='⚑ '
-
 # Disable antigen's cache to always load latest changes from the plugin
 export _ANTIGEN_CACHE_ENABLED=true
+
+# Antigen plugin options
+TIPZ_TEXT='⚑ '
+
+source ~/dotfiles/antigen/antigen.zsh
 antigen init ~/dotfiles/antigenrc
 
 # more zsh stuff

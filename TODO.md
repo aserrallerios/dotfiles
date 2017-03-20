@@ -1,5 +1,4 @@
 # DOING
-* My /*.zsh files as antigen plugin
 * dotfiles tool
   - rcm
   - dotbot
@@ -8,6 +7,7 @@
   - fresh
 
 # DONE
+* My /*.zsh files as antigen plugin
 * git & github:
   - https://github.com/skwp/dotfiles
   - https://github.com/tj/git-extras
