@@ -41,6 +41,7 @@
     - https://github.com/unixorn/zsh-quickstart-kit
 
 # BACKLOG
+* organize dotfiles in folders loaded dynamically if the application is installed (for example git, hub, rbenv, etc.)
 * git & github:
   - https://github.com/arc90/git-sweep
   - hub

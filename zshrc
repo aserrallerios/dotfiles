@@ -2,6 +2,7 @@
 # rm ~/.zcompdump*
 
 # POWERLINE9K config before theme load
+source ~/dotfiles/powerlevel9k-kubectl
 source ~/dotfiles/powerlevel9k
 
 # Disable antigen's cache to always load latest changes from the plugin
