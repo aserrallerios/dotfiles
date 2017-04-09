@@ -88,12 +88,6 @@
 [submodule "vim/bundle/vim-signify"]
 	path = vim/bundle/vim-signify
 	url = https://github.com/mhinz/vim-signify.git
-[submodule "ruby/rbenv"]
-	path = ruby/rbenv
-	url = https://github.com/sstephenson/rbenv.git
-[submodule "ruby/ruby-build"]
-	path = ruby/ruby-build
-	url = https://github.com/sstephenson/ruby-build.git
 [submodule "dircolors-solarized"]
 	path = dircolors-solarized
 	url = https://github.com/seebi/dircolors-solarized
@@ -109,3 +103,9 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen
+[submodule "ruby/ruby-build"]
+	path = ruby/ruby-build
+	url = https://github.com/rbenv/ruby-build
+[submodule "ruby/rbenv"]
+	path = ruby/rbenv
+	url = https://github.com/rbenv/rbenv
