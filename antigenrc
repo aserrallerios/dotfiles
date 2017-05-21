@@ -71,10 +71,10 @@ antigen bundles <<EOBUNDLES
     # npm # Fails to load properly
     # safe-paste # Conflicts with zsh-completions
 
-    Tarrasch/zsh-autoenv # Other autoenv alternatives: oh-my-zsh/autoenv vs zpm-zsh/autoenv
+    Tarrasch/zsh-autoenv # Other autoenv alternatives: oh-my-zsh/autoenv vs zpm-zsh/autoenv vs cxreg/smartcd
     molovo/tipz # Instead of djui/alias-tips
 
-    nobeans/zsh-sdkman
+    sdkman/sdkman-cli zsh
 
     # Pugins suggested by unixorn/zsh-quickstart-kit
     chrissicool/zsh-256color # Sets your terminal to 256 colors if available.
