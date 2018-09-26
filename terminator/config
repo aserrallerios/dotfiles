@@ -13,13 +13,12 @@
 [profiles]
   [[default]]
     background_color = "#002b36"
-    background_darkness = 0.9
-    background_image = None
+    background_darkness = 0.8
     background_type = transparent
     copy_on_selection = True
-    font = "SourceCodePro+Powerline+Awesome Regular, 12"
+    cursor_color = "#839496"
+    font = SauceCodePro Nerd Font Mono Semi-Bold 14
     foreground_color = "#839496"
-    scroll_on_output = False
     scrollback_infinite = True
     show_titlebar = False
     use_system_font = False

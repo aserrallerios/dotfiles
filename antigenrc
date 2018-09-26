@@ -6,6 +6,8 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     # Bundles from the default repo (robbyrussell's oh-my-zsh)
     aws
+    brew
+    osx
     colored-man-pages
     colorize
     command-not-found
@@ -15,16 +17,18 @@ antigen bundles <<EOBUNDLES
     nyan
     rake
     rsync
+    screen
     sublime
+    vagrant
     fancy-ctrl-zb
     systemd
     ruby
+    chruby
     bower
     bundler
     ubuntu
     pip
     python
-    virtualenv
     mvn
     scala
     sbt
@@ -54,7 +58,6 @@ antigen bundles <<EOBUNDLES
     cp
     docker
     docker-compose
-    encode64
     gem
     go
     golang
@@ -68,13 +71,24 @@ antigen bundles <<EOBUNDLES
     kubectl
     z
     web-search
+    helm
+    terraform
+    sublime
+    dotenv
+    thefuck
+    # virtualenv # use pyenv instead
+    pyenv
     # npm # Fails to load properly
     # safe-paste # Conflicts with zsh-completions
 
-    Tarrasch/zsh-autoenv # Other autoenv alternatives: oh-my-zsh/autoenv vs zpm-zsh/autoenv vs cxreg/smartcd
+    Tarrasch/zsh-autoenv # Other autoenv alternatives: oh-my-zsh/autoenv vs zpm-zsh/autoenv vs cxreg/smartcd vs direnv/direnv
     molovo/tipz # Instead of djui/alias-tips
 
     sdkman/sdkman-cli zsh
+
+    joel-porquet/zsh-dircolors-solarized.git
+
+    MichaelAquilina/zsh-autoswitch-virtualenv
 
     # Pugins suggested by unixorn/zsh-quickstart-kit
     chrissicool/zsh-256color # Sets your terminal to 256 colors if available.
@@ -99,7 +113,7 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-history-substring-search
     psprint/zsh-navigation-tools
 
-    # Mi own customizations
+    # My own customizations
     aserrallerios/zsh-files
 EOBUNDLES
 
