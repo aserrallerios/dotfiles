@@ -1,36 +1,20 @@
 source =virtualenvwrapper.sh
 
-# If your bundle do use compinit in some way remember to always refresh your .zcompdump file. The easiest way is to run:
-# rm ~/.zcompdump*
+############ ZSH ############
 
 # POWERLINE9K config before theme load
 source ~/dotfiles/powerlevel9k
 
-ANTIGEN_CHECK_FILES=~/dotfiles/antigenrc
-ANTIGEN_CHECK_FILES=~/dotfiles/zshrc
+source <(antibody init)
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+antibody bundle < ~/dotfiles/zsh_plugins.txt
 
-# Antigen plugin options
+# Plugin options
 TIPZ_TEXT='⚑ '
-
-source ~/dotfiles/antigen/antigen.zsh
-antigen init ~/dotfiles/antigenrc
-
-# more zsh stuff
-autoload select-word-style
-select-word-style bash
-autoload -U zmv
-autoload -U zcp
-
-# Remove when antigen gets fixed
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/kubectl/kubectl.plugin.zsh
-source $HOME/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/aws/aws.plugin.zsh
-
 
 ############ APPS ############
 
 source ~/dotfiles/kubectl
-
-[ -f /home/aserralle/.travis/travis.sh ] && source /home/aserralle/.travis/travis.sh
 
 source /usr/share/chruby/chruby.sh
 

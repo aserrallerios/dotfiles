@@ -100,9 +100,6 @@
 [submodule "awesome-terminal-fonts"]
 	path = awesome-terminal-fonts
 	url = https://github.com/gabrielelana/awesome-terminal-fonts
-[submodule "antigen"]
-	path = antigen
-	url = https://github.com/zsh-users/antigen
 [submodule "ruby/ruby-build"]
 	path = ruby/ruby-build
 	url = https://github.com/rbenv/ruby-build
