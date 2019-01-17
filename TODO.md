@@ -1,10 +1,10 @@
 # DOING
 * dotfiles tool
-  - rcm
+  - freshshell fresh
   - dotbot
+  - rcm
   - stow
   - dotfiles
-  - fresh
 * fix `k` plugin (conflicts with kubectl alias)
 * fix `kubectl` and `aws-cli` plugins (antigen bug)
 
