@@ -2,7 +2,7 @@
 
 source=virtualenvwrapper.sh
 
-source ~/dotfiles/kubectl
+source ~/dotfiles/kubernetes/alias
 
 source /usr/share/chruby/chruby.sh
 # Default ruby other than the system ruby

@@ -1,0 +1,28 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.zshrc: zshrc
+    ~/.gitconfig: git/gitconfig
+    ~/.gitignore: git/gitignore
+    ~/.config/terminator:
+      create: true
+      path: terminator
+    ~/.config/tmuxinator/:
+      create: true
+      path: tmuxinator/*
+      glob: true
+      relink: true
+    ~/.config/plasmahudrc:
+      create: true
+      path: plasma-hud/plasmahudrc
+    ~/.npmrc: npm/npmrc
+#    ~/.tmux.conf: tmux.conf
+#    ~/.vim: vim
+#    ~/.vimrc: vimrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
