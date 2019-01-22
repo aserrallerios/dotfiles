@@ -19,10 +19,10 @@
     ~/.config/plasmahudrc:
       create: true
       path: plasma-hud/plasmahudrc
-    ~/.npmrc: npm/npmrc
 #    ~/.tmux.conf: tmux.conf
 #    ~/.vim: vim
 #    ~/.vimrc: vimrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - wget -O- https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | sh

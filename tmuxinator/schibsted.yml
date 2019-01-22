@@ -54,5 +54,5 @@ windows:
   - scripts:
     - cd schibsted.github/deploy-tools
   - apps:
-    - cd schibsted.github 
+    - cd schibsted.github
   - kubernetes:
