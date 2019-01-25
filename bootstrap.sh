@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euo pipefail
 
 if [ ! "$HOME" == "$PWD" ]; then
   echo "This script is intended to be run from the user's home path: $HOME"
@@ -8,9 +8,7 @@ fi
 
 # requirements
 # - git
-# - antibody
 # - zsh
-# - ...
 
 git clone -b master --single-branch --depth 1 https://github.com/aserrallerios/dotfiles.git .dotfiles
 

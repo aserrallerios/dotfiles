@@ -1,6 +1,6 @@
 # TLDR
 
-wget -qO- https://raw.github.com/aserrallerios/dotfiles/master/bootstrap.sh | bash
+`wget -qO- https://raw.github.com/aserrallerios/dotfiles/master/bootstrap.sh | bash`
 
 # My dotfiles!
 
