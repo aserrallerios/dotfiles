@@ -7,6 +7,7 @@
 
 - link:
     ~/.zshrc: zshrc
+    ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.powerlevel9k: powerlevel9k
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore

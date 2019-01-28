@@ -2,12 +2,11 @@
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-# shortcut to this dotfiles path is $DOTFILES
-export DOTFILES="$HOME/dotfiles"
-
 # your default editor
 export EDITOR='nvim'
 export VEDITOR='code'
+
+export SSH_ASKPASS=ksshaskpass
 
 ############ APPS ############
 
@@ -41,7 +40,7 @@ function antibody-reload() {
 	if [ -f ~/.zsh_plugins.sh ]; then
 		mv ~/.zsh_plugins.sh ~/.zsh_plugins.sh.old
 	fi
-	antibody bundle < $DOTFILES/zsh_plugins.txt > ~/.zsh_plugins.sh
+	antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
 }
 if [ ! -f ~/.zsh_plugins.sh ]; then
 	antibody-reload
