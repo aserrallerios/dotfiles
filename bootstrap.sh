@@ -6,10 +6,6 @@ if [ ! "$HOME" == "$PWD" ]; then
   exit 1
 fi
 
-# requirements
-# - git
-# - zsh
-
 if [ ! -d ".dotfiles" ]; then
   git clone -b master --single-branch --depth 1 https://github.com/aserrallerios/dotfiles.git .dotfiles
 fi

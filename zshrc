@@ -2,14 +2,9 @@
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-# your default editor
-export EDITOR='nvim'
-export VEDITOR='code'
-
-export SSH_ASKPASS=ksshaskpass
-
 ############ APPS ############
 
+export SSH_ASKPASS=ksshaskpass
 source=virtualenvwrapper.sh
 
 ############ PLATFORM SPECIFIC ############
@@ -47,14 +42,6 @@ if [ ! -f ~/.zsh_plugins.sh ]; then
 fi
 ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 source ~/.zsh_plugins.sh
-
-autoload -Uz compinit
-typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
-if [ $(date +'%j') != $updated_at ]; then
-  compinit -i
-else
-  compinit -C -i
-fi
 
 # Plugin options
 TIPZ_TEXT='⚑ '
