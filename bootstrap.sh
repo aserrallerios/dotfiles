@@ -10,7 +10,9 @@ fi
 # - git
 # - zsh
 
-git clone -b master --single-branch --depth 1 https://github.com/aserrallerios/dotfiles.git .dotfiles
+if [ ! -d ".dotfiles" ]; then
+  git clone -b master --single-branch --depth 1 https://github.com/aserrallerios/dotfiles.git .dotfiles
+fi
 
 cd .dotfiles
 
