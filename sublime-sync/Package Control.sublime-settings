@@ -1,0 +1,42 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Abstract Markup Language",
+		"Alignment",
+		"auto-save",
+		"ayu",
+		"Better Completion",
+		"Boxy Theme",
+		"BracketHighlighter",
+		"Cucumber",
+		"Dockerfile Syntax Highlighting",
+		"Emmet",
+		"Ensime",
+		"Evernote",
+		"FileManager",
+		"Gist",
+		"Git",
+		"GitGutter",
+		"Highlight",
+		"HOCON Syntax Highlighting",
+		"MarkdownPreview",
+		"Package Control",
+		"Package Syncing",
+		"PackageResourceViewer",
+		"SideBarEnhancements",
+		"Skins",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeREPL",
+		"SyncedSideBar",
+		"SyntaxHighlightTools",
+		"Theme - Soda SolarizedDark",
+		"TrailingSpaces",
+		"WordHighlight"
+	]
+}
