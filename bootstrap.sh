@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euxo pipefail
 
 if [ ! "$HOME" == "$PWD" ]; then
   echo "This script is intended to be run from the user's home path: $HOME"
@@ -11,5 +11,4 @@ if [ ! -d ".dotfiles" ]; then
 fi
 
 cd .dotfiles
-
 ./install
