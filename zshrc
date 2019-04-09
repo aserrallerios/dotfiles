@@ -21,8 +21,6 @@ esac
 case "${machine}" in
 	Mac)
 		source ~/.iterm2_shell_integration.zsh
-		export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-		export JAVA_HOME=$(/usr/libexec/java_home)
 		;;
 esac
 
