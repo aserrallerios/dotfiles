@@ -3,6 +3,8 @@
     email = aserrallerios@gmail.com
 [includeIf "gitdir:~/schibsted.github/"]
     path = ~/schibsted.github/.gitconfig
+[includeIf "gitdir:~/adevinta.github/"]
+    path = ~/adevinta.github/.gitconfig
 [credential]
     helper = cache --timeout=600
 [color]

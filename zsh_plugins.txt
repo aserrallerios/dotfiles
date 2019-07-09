@@ -88,7 +88,7 @@ MichaelAquilina/zsh-autoswitch-virtualenv
 # Pugins suggested by unixorn/zsh-quickstart-kit
 chrissicool/zsh-256color # Sets your terminal to 256 colors if available.
 peterhurford/git-it-on.zsh # Opens your current repo on github, in your current branch.
-rimraf/k # k is a directory lister that also shows git status on files & directories.
+# supercrabtree/k # k is a directory lister that also shows git status on files & directories.
 sharat87/pip-app # A set of shell functions to make it easy to install small apps and utilities distributed with pip.
 skx/sysadmin-util # A collection of scripts useful for sysadmins.
 RobSis/zsh-completion-generator # Adds tool to generate zsh completion functions for programs missing them by parsing their --help output. Note that this doesn't happen dynamically, you'll have to explicitly create a completion for each command you need one for.
