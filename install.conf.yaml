@@ -16,7 +16,7 @@
     ~/.config/tmuxinator/:
       path: tmuxinator/*
       glob: true
-#    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux.conf
 #    ~/.vim: vim
 #    ~/.vimrc: vimrc
 
