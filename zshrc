@@ -39,6 +39,10 @@ if [ ! -f ~/.zsh_plugins.sh ]; then
 	antibody-reload
 fi
 ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+
+# quit bugging me!
+DISABLE_AUTO_UPDATE="true"
+
 source ~/.zsh_plugins.sh
 
 # Plugin options
@@ -46,11 +50,3 @@ TIPZ_TEXT='⚑ '
 
 ############ Shit added/needed by applications ############
 
-# Serverless
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/aserralle/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/aserralle/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/aserralle/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/aserralle/.npm-packages/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

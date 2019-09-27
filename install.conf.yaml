@@ -17,6 +17,7 @@
       path: tmuxinator/*
       glob: true
     ~/.tmux.conf: tmux.conf
+    ~/.tmux/plugins/tpm: tpm
 #    ~/.vim: vim
 #    ~/.vimrc: vimrc
 
