@@ -70,6 +70,9 @@ robbyrussell/oh-my-zsh path:plugins/dotenv
 robbyrussell/oh-my-zsh path:plugins/thefuck
 robbyrussell/oh-my-zsh path:plugins/pyenv
 robbyrussell/oh-my-zsh path:plugins/npm
+robbyrussell/oh-my-zsh path:plugins/asdf
+
+denisidoro/navi
 
 # virtualenv # use pyenv instead
 # safe-paste # Conflicts with zsh-completions

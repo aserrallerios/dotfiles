@@ -43,10 +43,16 @@ ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SL
 # quit bugging me!
 DISABLE_AUTO_UPDATE="true"
 
+#if type brew &>/dev/null; then
+#  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+#fi
+#rm -f ~/.zcompdump
 source ~/.zsh_plugins.sh
 
 # Plugin options
 TIPZ_TEXT='⚑ '
+NAVI_PATH="$HOME/.cheats"
+PATH=$_navi_path:$PATH
 
 ############ Shit added/needed by applications ############
 
