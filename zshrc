@@ -40,7 +40,7 @@ if [ ! -f ~/.zsh_plugins.sh ]; then
 fi
 ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
-# quit bugging me!
+# quit bugging me, oh-my-zsh!
 DISABLE_AUTO_UPDATE="true"
 
 #if type brew &>/dev/null; then
@@ -53,6 +53,11 @@ source ~/.zsh_plugins.sh
 TIPZ_TEXT='⚑ '
 NAVI_PATH="$HOME/.cheats"
 PATH=$_navi_path:$PATH
+
+# Remove duplicates from PATH
+# https://github.com/thoughtbot/dotfiles/pull/440
+# https://github.com/thoughtbot/dotfiles/pull/450
+export -U PATH
 
 ############ Shit added/needed by applications ############
 
