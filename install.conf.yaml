@@ -5,6 +5,9 @@
 
 - clean: ['~']
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
 - link:
     ~/.zshrc: zshrc
     ~/.zsh_plugins.txt: zsh_plugins.txt
@@ -16,11 +19,11 @@
     ~/.config/tmuxinator/:
       path: tmuxinator/*
       glob: true
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: oh-my-tmux/.tmux.conf
+    ~/.tmux.conf.local: tmux.conf.local
     ~/.tmux/plugins/tpm: tpm
 #    ~/.vim: vim
 #    ~/.vimrc: vimrc
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
   - curl -sL git.io/antibody | sh -s
