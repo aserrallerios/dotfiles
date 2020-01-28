@@ -1,0 +1,6 @@
+% kubernetes, kubectl, k8s
+
+# Scale a deployment
+kubectl scale deployment --replicas <number> <deployment>
+
+$ deployment: kubectl get deployments --- --headers 1 --column 1

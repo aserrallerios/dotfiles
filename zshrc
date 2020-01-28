@@ -51,7 +51,7 @@ source ~/.zsh_plugins.sh
 
 # Plugin options
 TIPZ_TEXT='⚑ '
-NAVI_PATH="$HOME/.cheats"
+export NAVI_PATH="$HOME/.cheats:$_navi_path/cheats"
 PATH=$_navi_path:$PATH
 
 # Remove duplicates from PATH

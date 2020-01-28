@@ -22,6 +22,7 @@
     ~/.tmux.conf: oh-my-tmux/.tmux.conf
     ~/.tmux.conf.local: tmux.conf.local
     ~/.tmux/plugins/tpm: tpm
+    ~/.cheats: cheats
 #    ~/.vim: vim
 #    ~/.vimrc: vimrc
 
