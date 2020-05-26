@@ -1,4 +1,9 @@
-#!/bin/zsh
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
@@ -26,9 +31,6 @@ esac
 
 ############ ZSH theme and plugins ############
 
-# POWERLINE9K config before theme load
-source ~/.powerlevel9k
-
 function antibody-reload() {
 	if [ -f ~/.zsh_plugins.sh ]; then
 		mv ~/.zsh_plugins.sh ~/.zsh_plugins.sh.old
@@ -43,10 +45,9 @@ ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SL
 # quit bugging me, oh-my-zsh!
 DISABLE_AUTO_UPDATE="true"
 
-#if type brew &>/dev/null; then
-#  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-#fi
-#rm -f ~/.zcompdump
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 source ~/.zsh_plugins.sh
 
 # Plugin options

@@ -11,7 +11,7 @@
 - link:
     ~/.zshrc: zshrc
     ~/.zsh_plugins.txt: zsh_plugins.txt
-    ~/.powerlevel9k: powerlevel9k
+    ~/.p10k.zsh: p10k.zsh
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
     ~/.config/terminator: terminator
