@@ -33,7 +33,6 @@ robbyrussell/oh-my-zsh path:plugins/gitignore
 robbyrussell/oh-my-zsh path:plugins/gitfast
 robbyrussell/oh-my-zsh path:plugins/git-flow
 robbyrussell/oh-my-zsh path:plugins/git-prompt
-robbyrussell/oh-my-zsh path:plugins/git-remote-branch
 robbyrussell/oh-my-zsh path:plugins/git-hubflow
 robbyrussell/oh-my-zsh path:plugins/sudo
 robbyrussell/oh-my-zsh path:plugins/themes
@@ -51,7 +50,6 @@ robbyrussell/oh-my-zsh path:plugins/cp
 robbyrussell/oh-my-zsh path:plugins/docker
 robbyrussell/oh-my-zsh path:plugins/docker-compose
 robbyrussell/oh-my-zsh path:plugins/gem
-robbyrussell/oh-my-zsh path:plugins/go
 robbyrussell/oh-my-zsh path:plugins/golang
 robbyrussell/oh-my-zsh path:plugins/gradle
 robbyrussell/oh-my-zsh path:plugins/grunt
@@ -72,7 +70,7 @@ robbyrussell/oh-my-zsh path:plugins/pyenv
 robbyrussell/oh-my-zsh path:plugins/npm
 robbyrussell/oh-my-zsh path:plugins/asdf
 
-denisidoro/navi
+denisidoro/navi path:shell
 
 # virtualenv # use pyenv instead
 # safe-paste # Conflicts with zsh-completions

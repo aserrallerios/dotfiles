@@ -1,0 +1,6 @@
+% tmux
+
+# Find a shortcut
+tmux list-keys | grep -i prefix | grep -i <command>
+
+# $ command: tmux list-commands

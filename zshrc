@@ -29,6 +29,8 @@ case "${machine}" in
 		;;
 esac
 
+export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
+
 ############ ZSH theme and plugins ############
 
 function antibody-reload() {
@@ -52,8 +54,6 @@ source ~/.zsh_plugins.sh
 
 # Plugin options
 TIPZ_TEXT='⚑ '
-export NAVI_PATH="$HOME/.cheats:$_navi_path/cheats"
-PATH=$_navi_path:$PATH
 
 # Remove duplicates from PATH
 # https://github.com/thoughtbot/dotfiles/pull/440
