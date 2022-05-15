@@ -110,6 +110,9 @@
     # battery               # internal battery
     # wifi                  # wifi speed
     # example               # example user-defined segment (see prompt_example function below)
+    # =========================[ Line #2 toggleable in custom transient ]=========================
+    status
+    time
   )
 
   # To enable default icons for all segments, don't define POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION
@@ -420,7 +423,8 @@
 
     # Display the current Git commit if there is no branch or tag.
     # Tip: To always display the current Git commit, remove `[[ -z $where ]] &&` from the next line.
-    [[ -z $where ]] && res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
+    # [[ -z $where ]] &&
+    res+="${meta}@${clean}${VCS_STATUS_COMMIT[1,8]}"
 
     # Show tracking branch name if it differs from local branch.
     if [[ -n ${VCS_STATUS_REMOTE_BRANCH:#$VCS_STATUS_LOCAL_BRANCH} ]]; then
@@ -1464,7 +1468,7 @@
   # If set to true, time will update when you hit enter. This way prompts for the past
   # commands will contain the start times of their commands as opposed to the default
   # behavior where they contain the end times of their preceding commands.
-  typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
+  typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
   # Custom icon.
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
@@ -1510,7 +1514,17 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+
+  # Custom transient prompt:
+  #
+  # POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline time prompt_char)
+  # function p10k-on-post-prompt() { p10k display '1|2/left_frame'=hide '2/left/*'=show }
+  # function p10k-on-pre-prompt()  { p10k display '1|2/left_frame'=show '2/left/*'=hide }
+  #
+  # POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=true
+  function p10k-on-post-prompt() { p10k display '1'=hide '2/right_frame'=hide '2/right/status'=show '2/right/time'=show }
+  function p10k-on-pre-prompt()  { p10k display '1'=show '2/right_frame'=show '2/right/status'=hide '2/right/time'=hide }
 
   # Instant prompt mode.
   #

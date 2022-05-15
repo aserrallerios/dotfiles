@@ -3,4 +3,7 @@
 # Scale a deployment
 kubectl scale deployment --replicas <number> <deployment>
 
+# Run a new pod
+kubectl run <name> --image=<docker-image> --restart=Never -i --command=true --rm -- <command>
+
 $ deployment: kubectl get deployments --- --headers 1 --column 1

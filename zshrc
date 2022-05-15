@@ -29,9 +29,11 @@ case "${machine}" in
 		;;
 esac
 
+export PYENV_ROOT="$HOME/.pyenv"
+eval "$(pyenv init --path)"
 export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
 
-############ ZSH theme and plugins ############
+############ ZSH theme & plugins ############
 
 function antibody-reload() {
 	if [ -f ~/.zsh_plugins.sh ]; then
@@ -60,5 +62,8 @@ TIPZ_TEXT='⚑ '
 # https://github.com/thoughtbot/dotfiles/pull/450
 export -U PATH
 
-############ Shit added/needed by applications ############
+############ Theme & plugins overrides ############
 
+
+
+############ Shit added/needed by applications ############

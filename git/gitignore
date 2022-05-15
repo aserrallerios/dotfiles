@@ -11,3 +11,4 @@ vim/tmp
 target/*
 .*
 .httr-oauth
+node_modules

@@ -2,7 +2,7 @@ robbyrussell/oh-my-zsh
 robbyrussell/oh-my-zsh path:plugins/common-aliases
 robbyrussell/oh-my-zsh path:plugins/aws
 robbyrussell/oh-my-zsh path:plugins/brew
-robbyrussell/oh-my-zsh path:plugins/osx
+robbyrussell/oh-my-zsh path:plugins/macos
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/colorize
 robbyrussell/oh-my-zsh path:plugins/command-not-found
@@ -42,9 +42,10 @@ robbyrussell/oh-my-zsh path:plugins/tmuxinator/_tmuxinator
 robbyrussell/oh-my-zsh path:plugins/battery
 robbyrussell/oh-my-zsh path:plugins/urltools
 robbyrussell/oh-my-zsh path:plugins/jsontools
-robbyrussell/oh-my-zsh path:plugins/zsh_reload
+# use omz reload
+# robbyrussell/oh-my-zsh path:plugins/zsh_reload
 robbyrussell/oh-my-zsh path:plugins/compleat
-robbyrussell/oh-my-zsh path:plugins/copydir
+robbyrussell/oh-my-zsh path:plugins/copypath
 robbyrussell/oh-my-zsh path:plugins/copyfile
 robbyrussell/oh-my-zsh path:plugins/cp
 robbyrussell/oh-my-zsh path:plugins/docker
@@ -69,6 +70,8 @@ robbyrussell/oh-my-zsh path:plugins/thefuck
 robbyrussell/oh-my-zsh path:plugins/pyenv
 robbyrussell/oh-my-zsh path:plugins/npm
 robbyrussell/oh-my-zsh path:plugins/asdf
+robbyrussell/oh-my-zsh path:plugins/zsh-navigation-tools
+# psprint/zsh-navigation-tools
 
 denisidoro/navi path:shell
 
@@ -103,7 +106,6 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
-psprint/zsh-navigation-tools
 junegunn/fzf path:shell/completion.zsh
 # junegunn/fzf path:shell/key-bindings.zsh
 Aloxaf/fzf-tab
