@@ -17,14 +17,12 @@
     ~/.config/terminator: terminator
     ~/.config/plasmahudrc: plasma-hud/plasmahudrc
     ~/.config/tmuxinator/:
-      path: tmuxinator/*
+      path: tmux/tmuxinator/*
       glob: true
-    ~/.tmux.conf: oh-my-tmux/.tmux.conf
-    ~/.tmux.conf.local: tmux.conf.local
-    ~/.tmux/plugins/tpm: tpm
+    ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
+    ~/.tmux.conf.local: tmux/tmux.conf.local
+    ~/.tmux/plugins/tpm: tmux/plugins/tpm
     ~/.cheats: cheats
-#    ~/.vim: vim
-#    ~/.vimrc: vimrc
 
 - shell:
   - curl -sL git.io/antibody | sh -s
