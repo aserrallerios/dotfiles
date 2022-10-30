@@ -14,7 +14,6 @@
     ~/.p10k.zsh: p10k.zsh
     ~/.gitconfig: git/gitconfig
     ~/.gitignore: git/gitignore
-    ~/.config/terminator: terminator
     ~/.config/plasmahudrc: plasma-hud/plasmahudrc
     ~/.config/tmuxinator/:
       path: tmux/tmuxinator/*

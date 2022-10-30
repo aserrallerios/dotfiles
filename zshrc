@@ -7,11 +7,6 @@ fi
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-############ APPS ############
-
-export SSH_ASKPASS=ksshaskpass
-source=virtualenvwrapper.sh
-
 ############ PLATFORM SPECIFIC ############
 
 unameOut="$(uname -s)"
@@ -28,6 +23,8 @@ case "${machine}" in
 		source ~/.iterm2_shell_integration.zsh
 		;;
 esac
+
+####### App stuff needed by Theme & Plugins #########
 
 export PYENV_ROOT="$HOME/.pyenv"
 eval "$(pyenv init --path)"
@@ -62,8 +59,9 @@ TIPZ_TEXT='⚑ '
 # https://github.com/thoughtbot/dotfiles/pull/450
 export -U PATH
 
-############ Theme & plugins overrides ############
+############ Apps ############
 
+export SSH_ASKPASS=ksshaskpass
+source=virtualenvwrapper.sh
 
-
-############ Shit added/needed by applications ############
+chruby system
