@@ -106,9 +106,6 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
-junegunn/fzf path:shell/completion.zsh
-# junegunn/fzf path:shell/key-bindings.zsh
-Aloxaf/fzf-tab
 
 # My own customizations
 aserrallerios/zsh-files
