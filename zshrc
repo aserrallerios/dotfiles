@@ -7,6 +7,8 @@ fi
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
+PATH=$HOME/bin:$PATH # antibody has been installed here
+
 ############ PLATFORM SPECIFIC ############
 
 unameOut="$(uname -s)"
@@ -26,9 +28,14 @@ esac
 
 ####### App stuff needed by Theme & Plugins #########
 
-export PYENV_ROOT="$HOME/.pyenv"
-eval "$(pyenv init --path)"
-export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
+if [ -x "$(command -v pyenv)" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  eval "$(pyenv init --path)"
+fi
+if [ -x "$(command -v navi)" ]; then
+  export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
+fi
+
 
 ############ ZSH theme & plugins ############
 
@@ -61,7 +68,10 @@ export -U PATH
 
 ############ Apps ############
 
-export SSH_ASKPASS=ksshaskpass
-source=virtualenvwrapper.sh
+export SSH_ASKPASS=ksshaskpass # check to remove
+source=virtualenvwrapper.sh # check to remove
 
-chruby system
+if [ -x "$(command -v chruby)" ]; then
+  chruby system
+fi
+
