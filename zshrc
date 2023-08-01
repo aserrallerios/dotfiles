@@ -7,7 +7,7 @@ fi
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-PATH=$HOME/bin:$PATH # antibody has been installed here
+PATH=/opt/homebrew/bin:$PATH # antibody has been installed here
 
 ############ PLATFORM SPECIFIC ############
 
@@ -20,22 +20,35 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 
+unameOut="$(uname -m)"
+case "${unameOut}" in
+    i386)   architecture="386" ;;
+    i686)   architecture="386" ;;
+    x86_64) architecture="amd64" ;;
+    arm64)  architecture="arm64" ;;
+    *)      architecture="UNKNOWN:${unameOut}"
+esac
+
 case "${machine}" in
-	Mac)
-		source ~/.iterm2_shell_integration.zsh
-		;;
+	Mac) source ~/.iterm2_shell_integration.zsh ;;
+esac
+
+case "${architecture}" in
+  amd64) export ARCHFLAGS="-arch x86_64" ;;
+  arm64) export ARCHFLAGS="-arch arm64" ;;
 esac
 
 ####### App stuff needed by Theme & Plugins #########
 
 if [ -x "$(command -v pyenv)" ]; then
   export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init --path)"
 fi
+function python() { python3 "$@"; } # only do this if python not found & python3 found
 if [ -x "$(command -v navi)" ]; then
   export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
 fi
-
 
 ############ ZSH theme & plugins ############
 
@@ -74,4 +87,3 @@ source=virtualenvwrapper.sh # check to remove
 if [ -x "$(command -v chruby)" ]; then
   chruby system
 fi
-

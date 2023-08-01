@@ -99,7 +99,8 @@ stackexchange/blackbox # Tom Limoncelli's tool for storing secret information in
 unixorn/bitbucket-git-helpers # Adds git helper scripts for bitbucket.
 unixorn/git-extra-commands # Collected extra git helper scripts.
 unixorn/rake-completion.zshplugin # Reads your Rakefile to tab complete the Rakefile targets.
-unixorn/tumult.plugin.zsh # Adds macOS-specific functions and scripts. This plugin only adds itself to your $PATH if you're on macOS.
+# Disabled because of https://github.com/unixorn/tumult.plugin.zsh/issues/132
+# unixorn/tumult.plugin.zsh # Adds macOS-specific functions and scripts. This plugin only adds itself to your $PATH if you're on macOS.
 
 # Other important bundles! Mind the order!
 zsh-users/zsh-completions
