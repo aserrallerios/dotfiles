@@ -7,8 +7,6 @@ fi
 
 # BASEDIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-PATH=/opt/homebrew/bin:$PATH # antibody has been installed here
-
 ############ PLATFORM SPECIFIC ############
 
 unameOut="$(uname -s)"
@@ -30,7 +28,10 @@ case "${unameOut}" in
 esac
 
 case "${machine}" in
-	Mac) source ~/.iterm2_shell_integration.zsh ;;
+	Mac)
+    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" # antibody has been installed here
+    source ~/.iterm2_shell_integration.zsh
+    ;;
 esac
 
 case "${architecture}" in

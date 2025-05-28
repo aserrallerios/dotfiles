@@ -1,4 +1,5 @@
 robbyrussell/oh-my-zsh
+robbyrussell/oh-my-zsh path:plugins/fzf
 robbyrussell/oh-my-zsh path:plugins/common-aliases
 robbyrussell/oh-my-zsh path:plugins/aws
 robbyrussell/oh-my-zsh path:plugins/brew
@@ -107,6 +108,8 @@ zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
+
+Aloxaf/fzf-tab
 
 # My own customizations
 aserrallerios/zsh-files

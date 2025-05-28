@@ -316,3 +316,21 @@ tmux_conf_copy_to_os_clipboard=false
 
 # move status line to top
 #set -g status-position top
+
+# Better pane splitting (add to user customizations section)
+unbind -
+bind - split-window -v
+bind | split-window -h
+
+# Enable mouse support
+set -g mouse on
+
+# Massive history
+set -g history-limit 999999999
+
+# Pane synchronization shortcuts (broadcast)
+bind b setw synchronize-panes on
+bind B setw synchronize-panes off
+
+# Enable clipboard integration (uncomment existing line)
+tmux_conf_copy_to_os_clipboard=true

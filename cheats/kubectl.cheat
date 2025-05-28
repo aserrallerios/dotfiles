@@ -6,4 +6,11 @@ kubectl scale deployment --replicas <number> <deployment>
 # Run a new pod
 kubectl run <name> --image=<docker-image> --restart=Never -i --command=true --rm -- <command>
 
+# Run a cronjob manually
+kubectl create job --from=cronjob/<cronjob> <job-name>
+
+# Disable a cronjob
+kubectl patch cronjobs <cronjob> -p '{"spec" : {"suspend" : true }}'
+
 $ deployment: kubectl get deployments --- --headers 1 --column 1
+$ cronjob: kubectl get cronjobs --- --headers 1 --column 1
