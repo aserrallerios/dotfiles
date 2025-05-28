@@ -10,7 +10,7 @@
 
 - link:
     ~/.zshrc: zshrc
-    ~/.zsh_plugins.txt: zsh_plugins.txt
+    ~/.zsh_zinit.zsh: zsh_zinit.zsh
     ~/.p10k.zsh: p10k.zsh
     ~/.gitconfig:
       path: git/gitconfig
@@ -26,5 +26,5 @@
     ~/.cheats: cheats
 
 - shell:
-  - (cd $HOME && curl -sL git.io/antibody | sh -s)
+  - bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
   - curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash

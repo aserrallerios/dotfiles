@@ -29,7 +29,7 @@ esac
 
 case "${machine}" in
 	Mac)
-    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" # antibody has been installed here
+    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" # zinit has been installed here
     source ~/.iterm2_shell_integration.zsh
     ;;
 esac
@@ -46,34 +46,20 @@ if [ -x "$(command -v pyenv)" ]; then
   export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init --path)"
 fi
+
 function python() { python3 "$@"; } # only do this if python not found & python3 found
+
 if [ -x "$(command -v navi)" ]; then
   export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
 fi
 
 ############ ZSH theme & plugins ############
 
-function antibody-reload() {
-	if [ -f ~/.zsh_plugins.sh ]; then
-		mv ~/.zsh_plugins.sh ~/.zsh_plugins.sh.old
-	fi
-	antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
-}
-if [ ! -f ~/.zsh_plugins.sh ]; then
-	antibody-reload
-fi
-ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
-
-# quit bugging me, oh-my-zsh!
-DISABLE_AUTO_UPDATE="true"
+# Load Zinit plugin manager configuration
+[[ ! -f ~/.zsh_zinit.zsh ]] || source ~/.zsh_zinit.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-source ~/.zsh_plugins.sh
-
-# Plugin options
-TIPZ_TEXT='⚑ '
 
 # Remove duplicates from PATH
 # https://github.com/thoughtbot/dotfiles/pull/440
