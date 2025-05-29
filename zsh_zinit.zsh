@@ -8,6 +8,29 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# see: https://github.com/zdharma-continuum/zinit/discussions/651
+_fix-omz-plugin() {
+    [[ -f ./._zinit/teleid ]] || return 1
+    local teleid="$(<./._zinit/teleid)"
+    local pluginid
+    for pluginid (${teleid#OMZ::plugins/} ${teleid#OMZP::}) {
+        [[ $pluginid != $teleid ]] && break
+    }
+    (($?)) && return 1
+    print "Fixing $teleid..."
+    git clone --quiet --no-checkout --depth=1 --filter=tree:0 https://github.com/ohmyzsh/ohmyzsh
+    cd ./ohmyzsh
+    git sparse-checkout set --no-cone /plugins/$pluginid
+    git checkout --quiet
+    cd ..
+    local file
+    for file (./ohmyzsh/plugins/$pluginid/*~(.gitignore|*.plugin.zsh)(D)) {
+        print "Copying ${file:t}..."
+        cp -R $file ./${file:t}
+    }
+    rm -rf ./ohmyzsh
+}
+
 # Zinit helper functions
 function zinit-reload() {
 	exec zsh
@@ -35,9 +58,6 @@ zinit snippet OMZP::fzf
 zinit snippet OMZP::common-aliases
 zinit snippet OMZP::aws
 zinit snippet OMZP::brew
-# macos plugin - DISABLED: causing issues with missing dependencies (music, spotify files)
-# The functions it provides (music, spotify) can be replaced with direct commands if needed
-# zinit snippet OMZP::macos
 zinit snippet OMZP::colored-man-pages
 zinit snippet OMZP::colorize
 zinit snippet OMZP::command-not-found
@@ -69,11 +89,6 @@ zinit snippet OMZP::git
 zinit snippet OMZP::git-extras
 zinit snippet OMZP::github
 zinit snippet OMZP::gitignore
-# gitfast - download entire plugin directory with SVN (needs git-prompt.sh file)
-# zinit ice wait lucid svn
-# this does not work!
-# zinit snippet OMZ::plugins/gitfast
-# git-flow has dependencies - use external plugin instead
 zinit ice wait lucid
 zinit load bobthecow/git-flow-completion
 zinit snippet OMZP::git-prompt
@@ -81,12 +96,7 @@ zinit snippet OMZP::git-hubflow
 zinit snippet OMZP::sudo
 zinit snippet OMZP::themes
 
-# tmux plugin - needs multiple files (tmux.plugin.zsh, tmux.extra.conf, tmux.only.conf)
-# Download additional required files automatically on clone and update
-# It's a workaround for the fact that zinit does not handle multiple files in a single snippet (bug)
-# This should work: zinit ice svn
-zinit ice atclone"curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/tmux/tmux.extra.conf -o tmux.extra.conf && curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/tmux/tmux.only.conf -o tmux.only.conf" atpull"%atclone"
-zinit snippet OMZP::tmux
+zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/{git-flow,gitfast,tmux,extract,macos}
 
 # tmuxinator - use Oh-My-Zsh version directly (simple aliases plugin)
 zinit snippet OMZP::tmuxinator
@@ -103,8 +113,8 @@ zinit snippet OMZP::gem
 zinit snippet OMZP::golang
 zinit snippet OMZP::gradle
 zinit snippet OMZP::grunt
-zinit snippet OMZP::history
 # history-substring-search - use external plugin (already loaded at end)
+zinit snippet OMZP::history
 # lein completion only (no plugin.zsh file)
 zinit ice wait lucid as"completion"
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/lein/_lein
@@ -122,7 +132,8 @@ zinit snippet OMZP::thefuck
 zinit snippet OMZP::pyenv
 zinit snippet OMZP::npm
 zinit snippet OMZP::asdf
-zinit snippet OMZP::zsh-navigation-tools
+
+zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZP::zsh-navigation-tools
 
 # External plugins with specific loading requirements
 # Load navi plugin with proper path and conditional loading (redirect all output to silence)
