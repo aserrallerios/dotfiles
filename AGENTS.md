@@ -26,7 +26,7 @@ This is a personal dotfiles repo bootstrapped via `dotbot`. It targets macOS (Ap
 | `tmux/tmux.conf`         | Tmux config with TPM plugins                                    | tmux conf            |
 | `git/gitconfig`          | Git aliases, merge tools, includes                              | Git config INI       |
 | `install.conf.yaml`      | Dotbot directives — what gets linked/cleaned/run                | YAML                 |
-| `cheats/`                | Navi cheatsheet files                                           | Navi format          |
+| `navi/`                  | Navi cheatsheet files                                           | Navi format          |
 
 ### When Modifying Shell Config
 

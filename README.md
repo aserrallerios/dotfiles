@@ -24,7 +24,8 @@ curl -fsSL https://raw.githubusercontent.com/aserrallerios/dotfiles/master/boots
 | Terminal multiplexer | tmux + [TPM](https://github.com/tmux-plugins/tpm)                  | `tmux/tmux.conf`                 |
 | Editor               | [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/) | `nvim/`                          |
 | Git                  | git aliases & config                                               | `git/gitconfig`, `git/gitignore` |
-| Cheatsheets          | [navi](https://github.com/denisidoro/navi)                         | `cheats/`                        |
+| Cheatsheets          | [navi](https://github.com/denisidoro/navi)                         | `navi/`                          |
+| Cheatsheets          | [cheat](https://github.com/cheat/cheat)                            | `cheat/`                         |
 
 ## Structure
 
@@ -47,23 +48,25 @@ dotfiles/
 ├── git/
 │   ├── gitconfig
 │   └── gitignore
-├── cheats/                # navi cheatsheets
+├── navi/                  # navi cheatsheets
+├── cheat/                 # cheat config
 └── dotbot/                # dotbot submodule
 ```
 
 ## What gets linked
 
-| Source             | Target                |
-| ------------------ | --------------------- |
-| `zshrc`            | `~/.zshrc`            |
-| `zsh_zinit.zsh`    | `~/.zsh_zinit.zsh`    |
-| `p10k.zsh`         | `~/.p10k.zsh`         |
-| `git/gitconfig`    | `~/.gitconfig`        |
-| `git/gitignore`    | `~/.gitignore`        |
-| `tmux/tmux.conf`   | `~/.tmux.conf`        |
-| `tmux/plugins/tpm` | `~/.tmux/plugins/tpm` |
-| `nvim/`            | `~/.config/nvim`      |
-| `cheats/`          | `~/.cheats`           |
+| Source             | Target                     |
+| ------------------ | -------------------------- |
+| `zshrc`            | `~/.zshrc`                 |
+| `zsh_zinit.zsh`    | `~/.zsh_zinit.zsh`         |
+| `p10k.zsh`         | `~/.p10k.zsh`              |
+| `git/gitconfig`    | `~/.gitconfig`             |
+| `git/gitignore`    | `~/.gitignore`             |
+| `tmux/tmux.conf`   | `~/.tmux.conf`             |
+| `tmux/plugins/tpm` | `~/.tmux/plugins/tpm`      |
+| `nvim/`            | `~/.config/nvim`           |
+| `navi/`            | `~/.navi`                  |
+| `cheat/conf.yml`   | `~/.config/cheat/conf.yml` |
 
 ## Prerequisites
 

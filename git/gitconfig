@@ -74,6 +74,9 @@
     diffall = diff HEAD
     dlast = diff HEAD^                # diff last committed change
     dsf = "!f() { git diff --color \"$@\" | diff-so-fancy | less --tabs=4 -RFX; }; f"
+    dft = "!f() { GIT_EXTERNAL_DIFF=difft git diff $@; }; f"
+    dftc = "!f() { GIT_EXTERNAL_DIFF=difft git diff --cached $@; }; f"
+    dftl = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 
     # grep
     grep = grep -Ii

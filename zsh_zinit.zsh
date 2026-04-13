@@ -130,8 +130,8 @@ zinit snippet OMZP::thefuck
 # REMOVED: zsh-navigation-tools (fzf-tab covers this)
 
 # External plugins with specific loading requirements
-# Load navi plugin with proper path and conditional loading (redirect all output to silence)
-zinit ice wait lucid pick"shell/navi.plugin.zsh" if'command -v navi >/dev/null 2>&1'
+# Navi widget (Ctrl-G) — load without wait to ensure widget binds immediately
+zinit ice pick"shell/navi.plugin.zsh" if'(( $+commands[navi] ))'
 zinit load denisidoro/navi
 
 # Completion plugins - load with fpath handling

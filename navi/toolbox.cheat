@@ -1,0 +1,329 @@
+% toolbox, process, monitor
+
+# System monitor — interactive (TUI with CPU, memory, disk, network)
+btop
+
+# System monitor — lightweight (classic top replacement)
+htop
+
+# System monitor — rust-based with graphs
+btm
+
+# System monitor — web dashboard (start netdata service)
+netdata
+
+# System monitor — all-in-one glance (CPU, mem, disk, net, docker)
+glances
+
+# Process search — find process by name (modern ps)
+procs --tree
+
+# Process search — find by keyword
+procs <keyword>
+
+% toolbox, disk, storage
+
+# Disk usage — interactive treemap (ncurses)
+ncdu <path>
+
+# Disk usage — fast visual summary (modern du)
+dust <path>
+
+# Disk usage — macOS visual (GUI)
+open -a DaisyDisk
+
+# Disk usage — classic overview
+df -h
+
+# Disk benchmark — macOS (GUI)
+open -a AmorphousDiskMark
+
+% toolbox, files, search, find
+
+# Find files — by name (modern find)
+fd <pattern>
+
+# Find files — by content (modern grep)
+rg <pattern>
+
+# List files — with icons and git status (modern ls)
+eza -la --icons --git
+
+# List files — with icons and colors (alternative ls)
+lsd -la
+
+# Browse files — terminal file manager (midnight commander)
+mc
+
+# File content — syntax-highlighted cat
+bat <file>
+
+# File tree — recursive with icons
+eza --tree --icons
+
+% toolbox, text, replace, sed
+
+# Find and replace in files — interactive (modern sed)
+sd '<find>' '<replace>' <file>
+
+# Convert line endings — DOS to Unix
+dos2unix <file>
+
+% toolbox, git, version-control
+
+# Git — interactive TUI (stage, commit, push, log, diff)
+lazygit
+
+# Git — GitHub CLI (PRs, issues, repos, workflows)
+gh
+
+# Git — hub CLI (legacy GitHub wrapper)
+hub
+
+# Git — pretty diff viewer (side-by-side, syntax-aware)
+difft <file_a> <file_b>
+
+# Git — enhanced diff pager (used automatically via gitconfig)
+delta
+
+# Git — extra commands (summary, effort, undo, etc.)
+git extras
+
+# Git — visual client (GUI)
+open -a GitKraken
+
+% toolbox, http, api, request
+
+# HTTP client — modern curl alternative (colorized, httpie-compatible)
+xh <method> <url>
+
+# HTTP client — python-based with pretty output
+http <method> <url>
+
+# HTTP client — classic
+curl -s <url> | jq
+
+# API client — GraphQL playground (GUI)
+open -a "Altair GraphQL Client"
+
+# API client — REST (GUI)
+open -a Postman
+
+# WebSocket client — connect to ws endpoint
+websocat <ws_url>
+
+% toolbox, dns, network
+
+# DNS lookup — modern dig with colors
+doggo <domain>
+
+# Network speed — bandwidth test (TCP)
+iperf3 -c <server>
+
+# Check my public IP
+curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+
+# SSH — persistent connection (auto-reconnect)
+autossh -M 0 <host>
+
+# SSH — share terminal session (tmux over SSH)
+tmate
+
+# Mount remote filesystem via SSH
+sshfs <user>@<host>:<remote_path> <local_mount>
+
+# Telnet — connect to host:port
+telnet <host> <port>
+
+% toolbox, json, data
+
+# JSON — interactive viewer and filter
+fx <file>
+
+# JSON — query and transform
+jq '<filter>' <file>
+
+# JSON — flatten to greppable paths
+gron <file>
+
+# SQL — run SQL queries on CSV/JSON/text files
+q "SELECT * FROM <file>"
+
+% toolbox, containers, docker, kubernetes
+
+# Docker — interactive TUI (containers, images, volumes)
+lazydocker
+
+# Kubernetes — interactive TUI (pods, logs, exec)
+k9s
+
+# Kubernetes — switch context/namespace fast
+kubectx / kubens
+
+# Kubernetes — tail multi-pod logs
+stern <pod_pattern>
+
+# Kubernetes — convert docker-compose to k8s manifests
+kompose convert
+
+# Kubernetes — local cluster
+minikube start
+
+# Kubernetes — visual client (GUI)
+open -a Kubernetic
+
+# Kubernetes — cluster management (GUI)
+open -a Lens
+
+# Kafka — produce/consume from topics (modern kafkacat)
+kcat -b <broker> -t <topic>
+
+% toolbox, benchmark, measure
+
+# Benchmark — compare command execution times
+hyperfine '<cmd_a>' '<cmd_b>'
+
+# Code stats — count lines of code by language
+tokei
+
+# Shell startup — measure zsh init time
+time zsh -i -c exit
+
+# Load test — HTTP (JMeter)
+jmeter
+
+% toolbox, editor, writing
+
+# Editor — terminal (neovim)
+nvim <file>
+
+# Editor — GUI
+code <file>
+
+# Notes — knowledge base (GUI)
+open -a Notion
+
+# Markdown — wysiwyg editor (GUI)
+open -a Typora
+
+# Mind maps (GUI)
+open -a XMind
+
+% toolbox, cheatsheet, help, remember
+
+# Interactive cheatsheet browser (Ctrl+G)
+navi
+
+# Quick command examples (tldr)
+tldr <command>
+
+# Cheat — community cheatsheets
+cheat <command>
+
+# Snippet manager — save and search snippets
+pet search
+
+# Save a new snippet to pet
+pet new
+
+# Command history — searchable snippet tool
+the-way search
+
+% toolbox, security, crypto, passwords
+
+# File encryption — cloud-compatible
+open -a Cryptomator
+
+# Password manager (GUI)
+open -a KeePassXC
+
+# GPG — encrypt/decrypt/sign
+gpg
+
+% toolbox, version-manager, runtime
+
+# Manage runtimes — node, python, ruby, java, go, etc. (mise)
+mise list
+
+# Install a runtime version
+mise use <tool>@<version>
+
+# Python package manager — fast pip/venv replacement
+uv
+
+# Scala CLI
+scala-cli
+
+# Java build — Maven
+mvn
+
+# Java build — sbt
+sbtx
+
+# JDK artifact manager
+cs (coursier)
+
+% toolbox, file-sync, transfer, backup
+
+# Sync files — cloud remotes (S3, GDrive, etc.)
+rclone sync <source> <remote>:<path>
+
+# Sync files — local/remote (rsync)
+rsync -avz <source> <dest>
+
+# Sync files — continuous (Syncthing GUI)
+open -a Syncthing
+
+# Cloud storage (GUI)
+open -a Nextcloud
+
+# Remote filesystem — SFTP/FTP/S3/WebDAV (GUI)
+open -a Cyberduck
+
+# Remote filesystem — mount as drive (GUI)
+open -a "Mountain Duck"
+
+% toolbox, terminal, navigation
+
+# Directory jumper — frecency-based (z/cd replacement)
+z <partial_path>
+
+# Session manager — tmux session picker
+sesh
+
+# Terminal multiplexer
+tmux
+
+# Dotfile manager — symlink manager
+stow
+
+# Shell linter — check shell scripts
+shellcheck <script>
+
+# ASCII art — text banners
+figlet <text>
+
+# System info — pretty system summary
+neofetch
+
+# Clipboard manager — macOS (GUI)
+open -a Maccy
+
+# Window tiling (GUI)
+open -a Tiles
+
+# App launcher (GUI)
+open -a LaunchBar
+
+% toolbox, database
+
+# Database client — universal SQL (GUI)
+open -a DBeaver
+
+# PostgreSQL admin (GUI)
+open -a pgAdmin4
+
+% toolbox, todo, productivity
+
+# Todo list — plain text
+todo.sh

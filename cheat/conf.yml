@@ -1,0 +1,32 @@
+---
+# The editor to use with 'cheat -e <sheet>'. Overridden by $VISUAL or $EDITOR.
+editor: nvim
+
+# Should 'cheat' always colorize output?
+colorize: true
+
+# Which 'chroma' colorscheme should be applied to the output?
+style: monokai
+
+# Which 'chroma' "formatter" should be applied?
+formatter: terminal256
+
+# Through which pager should output be piped?
+pager: less -FRX
+
+cheatpaths:
+
+  - name: community
+    path: ~/.config/cheat/cheatsheets/community
+    tags: [ community ]
+    readonly: true
+
+  - name: personal
+    path: ~/.config/cheat/cheatsheets/personal
+    tags: [ personal ]
+    readonly: false
+
+  - name: work
+    path: ~/.config/cheat/cheatsheets/work
+    tags: [ work ]
+    readonly: false
