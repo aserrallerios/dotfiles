@@ -16,15 +16,36 @@
       path: git/gitconfig
       force: true
     ~/.gitignore: git/gitignore
-    ~/.config/plasmahudrc: plasma-hud/plasmahudrc
-    ~/.config/tmuxinator/:
-      path: tmux/tmuxinator/*
-      glob: true
-    ~/.tmux.conf: tmux/oh-my-tmux/.tmux.conf
-    ~/.tmux.conf.local: tmux/tmux.conf.local
-    ~/.tmux/plugins/tpm: tmux/plugins/tpm
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/nvim: nvim
     ~/.cheats: cheats
 
 - shell:
-  - bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-  - curl -L https://iterm2.com/shell_integration/install_shell_integration.sh | bash
+  - command: |
+      if [[ "$(uname -s)" == "Darwin" ]]; then
+        git config --global credential.helper osxkeychain
+      else
+        git config --global credential.helper 'cache --timeout=3600'
+      fi
+    description: Configuring git credential helper for platform
+    stdin: true
+    stdout: true
+    stderr: true
+  - command: |
+      if [ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}/zinit" ]; then
+        git clone https://github.com/zdharma-continuum/zinit.git "${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
+      fi
+    description: Installing zinit (if not present)
+    stdin: true
+    stdout: true
+    stderr: true
+  - command: |
+      if [ ! -d "$HOME/.tmux/plugins/tpm/.git" ]; then
+        rm -rf "$HOME/.tmux/plugins/tpm"
+        mkdir -p "$HOME/.tmux/plugins"
+        git clone https://github.com/tmux-plugins/tpm.git "$HOME/.tmux/plugins/tpm"
+      fi
+    description: Installing TPM (if not present)
+    stdin: true
+    stdout: true
+    stderr: true

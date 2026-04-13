@@ -8,6 +8,9 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
+# Load custom zsh-files first (foundational exports, PATH, tool configs)
+zinit load aserrallerios/zsh-files
+
 # see: https://github.com/zdharma-continuum/zinit/discussions/651
 _fix-omz-plugin() {
     [[ -f ./._zinit/teleid ]] || return 1
@@ -69,15 +72,12 @@ zinit ice wait lucid as"completion"
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/httpie/_httpie
 zinit snippet OMZP::rake
 zinit snippet OMZP::rsync
-zinit snippet OMZP::screen
-zinit snippet OMZP::sublime
-zinit snippet OMZP::vagrant
-zinit snippet OMZP::systemd
 zinit snippet OMZP::ruby
 zinit snippet OMZP::chruby
-zinit snippet OMZP::bower
 zinit snippet OMZP::bundler
-zinit snippet OMZP::ubuntu
+# Platform-specific plugins
+[[ "$(uname -s)" == "Linux" ]] && zinit snippet OMZP::systemd
+[[ "$(uname -s)" == "Linux" ]] && zinit snippet OMZP::ubuntu
 zinit snippet OMZP::pip
 zinit snippet OMZP::python
 zinit snippet OMZP::mvn
@@ -92,18 +92,14 @@ zinit snippet OMZP::gitignore
 zinit ice wait lucid
 zinit load bobthecow/git-flow-completion
 zinit snippet OMZP::git-prompt
-zinit snippet OMZP::git-hubflow
 zinit snippet OMZP::sudo
-zinit snippet OMZP::themes
 
 zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/{git-flow,gitfast,tmux,extract,macos}
 
 # tmuxinator - use Oh-My-Zsh version directly (simple aliases plugin)
 zinit snippet OMZP::tmuxinator
-zinit snippet OMZP::battery
 zinit snippet OMZP::urltools
 zinit snippet OMZP::jsontools
-zinit snippet OMZP::compleat
 zinit snippet OMZP::copypath
 zinit snippet OMZP::copyfile
 zinit snippet OMZP::cp
@@ -161,17 +157,9 @@ zinit load chrissicool/zsh-256color
 zinit ice wait"2" lucid
 zinit load peterhurford/git-it-on.zsh
 zinit ice wait"2" lucid
-zinit load sharat87/pip-app
-zinit ice wait"2" lucid
 zinit load skx/sysadmin-util
 zinit ice wait"2" lucid
 zinit load RobSis/zsh-completion-generator
-zinit ice wait"2" lucid
-zinit load srijanshetty/docker-zsh
-zinit ice wait"2" lucid
-zinit load stackexchange/blackbox
-zinit ice wait"2" lucid
-zinit load unixorn/bitbucket-git-helpers
 zinit ice wait"2" lucid
 zinit load unixorn/git-extra-commands
 zinit ice wait"2" lucid
@@ -190,15 +178,16 @@ zinit ice wait lucid atload"_zsh_autosuggest_start"
 zinit load zsh-users/zsh-autosuggestions
 
 # Load syntax highlighting (must be loaded after other plugins that bind to ZLE)
-zinit ice wait lucid atinit"zicompinit; zicdreplay"
+zinit ice wait lucid
 zinit load zsh-users/zsh-syntax-highlighting
 
 # Load history substring search (depends on syntax highlighting)
-zinit ice wait lucid
-zinit load zsh-users/zsh-history-substring-search
+# THIS DOESN'T SEEM TO WORK
+# zinit load zsh-users/zsh-history-substring-search
 
-# Custom plugins
-zinit load aserrallerios/zsh-files
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Theme - Powerlevel10k (loaded at the end)
 zinit ice depth"1"

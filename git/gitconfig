@@ -5,8 +5,6 @@
     path = ~/adevinta.github/.gitconfig
 [url "git@github.mpi-internal.com:"]  # this cannot be in ~/adevinta.github/.gitconfig as some tools (like go) clone repos outside the working directory
 	insteadOf = https://github.mpi-internal.com/
-[credential]
-    helper = cache --timeout=600
 [color]
     status = always
     interactive = always
@@ -97,7 +95,7 @@
     ll = log --graph --oneline
     ls = log --pretty=format:'%C(yellow)%h %C(green)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
     graph = log --graph --pretty=format':%C(yellow)%h%Cgreen%d%Creset %s %C(white) %an, %ar%Creset'
-    standup = log --since '1 day ago' --oneline --author <YOUREMAIL>
+    standup = log --since '1 day ago' --oneline --author aserrallerios@gmail.com
     ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
     le = log --oneline --decorate
 
@@ -119,7 +117,7 @@
     ra = rebase --abort               # abort rebase
 
     # remote
-    r = remote -v                     # show remotes (verbose)
+    rem = remote -v                   # show remotes (verbose)
     lsrh = ls-remote --heads
     lsrt = ls-remote --tags
 
@@ -181,9 +179,9 @@
 [push]
     # 'git push' will push the current branch to its tracking branch
     # the usual default is to push all branches
-    default = upstream
+    default = current
 [core]
-    editor = vim -X
+    editor = nvim
     excludesfile = ~/.gitignore
     autocrlf = false
     preloadindex = true
@@ -201,3 +199,5 @@
     enabled = true
 [include]
     path = .gitconfig.user
+[credential]
+	helper = osxkeychain

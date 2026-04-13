@@ -29,8 +29,8 @@ esac
 
 case "${machine}" in
 	Mac)
-    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" # zinit has been installed here
-    source ~/.iterm2_shell_integration.zsh
+    PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+    [[ -f ~/.iterm2_shell_integration.zsh ]] && source ~/.iterm2_shell_integration.zsh
     ;;
 esac
 
@@ -38,20 +38,6 @@ case "${architecture}" in
   amd64) export ARCHFLAGS="-arch x86_64" ;;
   arm64) export ARCHFLAGS="-arch arm64" ;;
 esac
-
-####### App stuff needed by Theme & Plugins #########
-
-if [ -x "$(command -v pyenv)" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-fi
-
-function python() { python3 "$@"; } # only do this if python not found & python3 found
-
-if [ -x "$(command -v navi)" ]; then
-  export NAVI_PATH="$HOME/.cheats:$(navi info cheats-path)"
-fi
 
 ############ ZSH theme & plugins ############
 
@@ -68,9 +54,6 @@ export -U PATH
 
 ############ Apps ############
 
-export SSH_ASKPASS=ksshaskpass # check to remove
-source=virtualenvwrapper.sh # check to remove
-
-if [ -x "$(command -v chruby)" ]; then
-  chruby system
-fi
+# Tool-managed paths
+[[ -d "$HOME/.opencode/bin" ]] && export PATH="$HOME/.opencode/bin:$PATH"
+[[ -d "$HOME/.lmstudio/bin" ]] && export PATH="$PATH:$HOME/.lmstudio/bin"
