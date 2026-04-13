@@ -58,28 +58,27 @@ zinit snippet OMZL::theme-and-appearance.zsh
 
 # Oh-My-Zsh plugins
 zinit snippet OMZP::fzf
-zinit snippet OMZP::common-aliases
+# REMOVED: common-aliases (conflicts with fd binary, we have custom aliases in zsh-files)
+# REMOVED: colored-man-pages (replaced by bat MANPAGER)
+# REMOVED: colorize (replaced by bat)
 zinit snippet OMZP::aws
 zinit snippet OMZP::brew
-zinit snippet OMZP::colored-man-pages
-zinit snippet OMZP::colorize
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::encode64
 zinit snippet OMZP::nmap
-zinit snippet OMZP::node
+# REMOVED: node (mise handles node/npm)
 # httpie completion only (no plugin.zsh file)
 zinit ice wait lucid as"completion"
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/httpie/_httpie
 zinit snippet OMZP::rake
 zinit snippet OMZP::rsync
-zinit snippet OMZP::ruby
-zinit snippet OMZP::chruby
+# REMOVED: ruby, chruby (mise handles ruby versions)
 zinit snippet OMZP::bundler
 # Platform-specific plugins
 [[ "$(uname -s)" == "Linux" ]] && zinit snippet OMZP::systemd
 [[ "$(uname -s)" == "Linux" ]] && zinit snippet OMZP::ubuntu
-zinit snippet OMZP::pip
-zinit snippet OMZP::python
+# REMOVED: pip (uv replaces pip workflows)
+# REMOVED: python (mise handles python versions, pyenv plugin removed)
 zinit snippet OMZP::mvn
 # scala completion only (no plugin.zsh file)
 zinit ice wait lucid as"completion"
@@ -114,22 +113,21 @@ zinit snippet OMZP::history
 # lein completion only (no plugin.zsh file)
 zinit ice wait lucid as"completion"
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/lein/_lein
-zinit snippet OMZP::rbenv
+# REMOVED: rbenv (mise handles ruby versions)
 # redis-cli completion only (no plugin.zsh file)
 zinit ice wait lucid as"completion"
 zinit snippet https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/plugins/redis-cli/_redis-cli
 zinit snippet OMZP::kubectl
-zinit snippet OMZP::z
+# REMOVED: z (replaced by zoxide)
 zinit snippet OMZP::web-search
 zinit snippet OMZP::helm
 zinit snippet OMZP::terraform
 zinit snippet OMZP::dotenv
 zinit snippet OMZP::thefuck
-zinit snippet OMZP::pyenv
-zinit snippet OMZP::npm
-zinit snippet OMZP::asdf
-
-zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZP::zsh-navigation-tools
+# REMOVED: pyenv (mise handles python versions)
+# REMOVED: npm (mise handles node/npm)
+# REMOVED: asdf (mise replaces asdf)
+# REMOVED: zsh-navigation-tools (fzf-tab covers this)
 
 # External plugins with specific loading requirements
 # Load navi plugin with proper path and conditional loading (redirect all output to silence)
@@ -148,8 +146,7 @@ zinit load Tarrasch/zsh-autoenv
 zinit load molovo/tipz
 zinit ice wait"1" lucid
 zinit load joel-porquet/zsh-dircolors-solarized
-zinit ice wait"1" lucid
-zinit load MichaelAquilina/zsh-autoswitch-virtualenv
+# REMOVED: zsh-autoswitch-virtualenv (mise handles python/virtualenv)
 
 # Plugins from unixorn/zsh-quickstart-kit recommendations - load with delays
 zinit ice wait"2" lucid

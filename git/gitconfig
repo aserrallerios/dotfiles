@@ -172,6 +172,7 @@
     summary = true
     verbosity = 1
     tool = mvimdiff
+    conflictstyle = zdiff3
 [apply]
     whitespace = nowarn
 [branch]
@@ -185,7 +186,14 @@
     excludesfile = ~/.gitignore
     autocrlf = false
     preloadindex = true
-    pager = less --tabs=4 -RFX
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true
+    dark = true
+    side-by-side = true
+    line-numbers = true
 [advice]
     statusHints = true
 [diff]
@@ -193,6 +201,7 @@
     # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
     algorithm = patience
+    colorMoved = default
 [rerere]
     # Remember my merges
     # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
