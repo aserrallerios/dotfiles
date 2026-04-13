@@ -8,9 +8,6 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Load custom zsh-files first (foundational exports, PATH, tool configs)
-zinit load aserrallerios/zsh-files
-
 # see: https://github.com/zdharma-continuum/zinit/discussions/651
 _fix-omz-plugin() {
     [[ -f ./._zinit/teleid ]] || return 1
@@ -143,7 +140,7 @@ zinit load Linuxbrew/brew
 # Environment and utility plugins - some can wait
 zinit ice wait"1" lucid
 zinit load Tarrasch/zsh-autoenv
-zinit load molovo/tipz
+zinit load MichaelAquilina/zsh-you-should-use
 zinit ice wait"1" lucid
 zinit load joel-porquet/zsh-dircolors-solarized
 # REMOVED: zsh-autoswitch-virtualenv (mise handles python/virtualenv)
@@ -189,6 +186,9 @@ zinit load zsh-users/zsh-syntax-highlighting
 
 # REMOVED: zsh-fzf-history-search (OMZP::fzf already provides native Ctrl-R via fzf --zsh)
 
+# Load custom zsh-files last so our aliases (eza, bat, etc.) override anything set by OMZ plugins
+zinit load aserrallerios/zsh-files
+
 # Theme - Powerlevel10k (loaded at the end)
 zinit ice depth"1"
 zinit light romkatv/powerlevel10k
@@ -196,4 +196,5 @@ zinit light romkatv/powerlevel10k
 ## Plugin options
 # quit bugging me, oh-my-zsh!
 DISABLE_AUTO_UPDATE="true"
-TIPZ_TEXT='⚑ '
+# zsh-you-should-use options
+YSU_MESSAGE_POSITION="after"
