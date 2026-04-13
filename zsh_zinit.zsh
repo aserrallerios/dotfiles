@@ -170,6 +170,11 @@ zinit load zsh-users/zsh-completions
 # Load fzf-tab (must be after compinit, before autosuggestions/syntax highlighting)
 zinit light Aloxaf/fzf-tab
 
+# fzf-git.sh — Ctrl-G + key for git fuzzy operations (branches, commits, tags, etc.)
+# Coexists with navi (Ctrl-G alone): press Ctrl-G + another key quickly for git, Ctrl-G alone for navi
+zinit ice pick"fzf-git.sh" if'(( $+commands[fzf] ))'
+zinit load junegunn/fzf-git.sh
+
 # Load autosuggestions with proper bindings
 zinit ice wait lucid atload"_zsh_autosuggest_start"
 zinit load zsh-users/zsh-autosuggestions
@@ -182,9 +187,7 @@ zinit load zsh-users/zsh-syntax-highlighting
 # THIS DOESN'T SEEM TO WORK
 # zinit load zsh-users/zsh-history-substring-search
 
-# zsh-fzf-history-search
-zinit ice lucid wait'0'
-zinit light joshskidmore/zsh-fzf-history-search
+# REMOVED: zsh-fzf-history-search (OMZP::fzf already provides native Ctrl-R via fzf --zsh)
 
 # Theme - Powerlevel10k (loaded at the end)
 zinit ice depth"1"
