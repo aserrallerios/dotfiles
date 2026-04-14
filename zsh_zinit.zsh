@@ -90,7 +90,8 @@ zinit load bobthecow/git-flow-completion
 zinit snippet OMZP::git-prompt
 zinit snippet OMZP::sudo
 
-zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/{git-flow,gitfast,tmux,extract,macos}
+# gitfast was removed, it caused problem with git --<TAB> completion, as it was mainly a legacy speed optimization, and modern git versions are already fast enough. The git plugin itself is sufficient for our needs.
+zinit wait lucid atpull"%atclone" atclone"_fix-omz-plugin" for OMZ::plugins/{git-flow,tmux,extract,macos}
 
 # tmuxinator - use Oh-My-Zsh version directly (simple aliases plugin)
 zinit snippet OMZP::tmuxinator

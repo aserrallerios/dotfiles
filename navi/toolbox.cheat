@@ -327,3 +327,8 @@ open -a pgAdmin4
 
 # Todo list — plain text
 todo.sh
+
+% toolbox, files, pipes
+
+# tee — write to file and stdout
+<command> | tee <file>
