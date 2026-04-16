@@ -1,12 +1,39 @@
+% toolbox, modern-replacements, quick-reference
+
+# Quick reference: modern CLI tool replacements
+# ┌──────────┬────────────┬──────────────────────────────────┐
+# │ Classic  │ Modern     │ Notes                            │
+# ├──────────┼────────────┼──────────────────────────────────┤
+# │ ls       │ eza        │ icons, git status, tree view      │
+# │ cat      │ bat        │ syntax highlighting, line numbers │
+# │ find     │ fd         │ regex-aware, respects .gitignore  │
+# │ grep     │ rg         │ ripgrep — blazing fast, recursive │
+# │ du       │ dust/ncdu  │ visual disk usage                 │
+# │ df       │ duf        │ colorized disk free (if installed)│
+# │ top/htop │ btop       │ TUI with graphs, mouse support    │
+# │ ps       │ procs      │ searchable, tree view, colors     │
+# │ sed      │ sd         │ intuitive regex, no escaping pain │
+# │ curl     │ xh         │ colorized, httpie-compatible      │
+# │ dig      │ doggo      │ colorized DNS with DoH/DoT        │
+# │ diff     │ difft/delta│ syntax-aware structural diffs     │
+# │ cd       │ z (zoxide) │ frecency-based directory jumper   │
+# │ man      │ tldr       │ community-driven quick examples   │
+# │ cloc     │ tokei      │ fast LOC counting by language     │
+# │ time     │ hyperfine  │ statistical benchmarking          │
+# │ nvm/pyenv│ mise       │ single tool for all runtimes      │
+# │ pip/venv │ uv         │ 10-100x faster Python packaging   │
+# └──────────┴────────────┴──────────────────────────────────┘
+echo "See aliases in zsh-files/core/aliases.zsh"
+
 % toolbox, process, monitor
 
-# System monitor — interactive (TUI with CPU, memory, disk, network)
+# System monitor — replaces top (TUI with CPU, memory, disk, network graphs)
 btop
 
-# System monitor — lightweight (classic top replacement)
+# System monitor — replaces top (lightweight, classic)
 htop
 
-# System monitor — rust-based with graphs
+# System monitor — replaces top (rust-based with sparkline graphs)
 btm
 
 # System monitor — web dashboard (start netdata service)
@@ -15,18 +42,18 @@ netdata
 # System monitor — all-in-one glance (CPU, mem, disk, net, docker)
 glances
 
-# Process search — find process by name (modern ps)
+# Process search — replaces ps (tree view with ports and threads)
 procs --tree
 
-# Process search — find by keyword
+# Process search — replaces ps (filter by keyword)
 procs <keyword>
 
 % toolbox, disk, storage
 
-# Disk usage — interactive treemap (ncurses)
+# Disk usage — replaces du (interactive ncurses treemap)
 ncdu <path>
 
-# Disk usage — fast visual summary (modern du)
+# Disk usage — replaces du (fast visual bar chart summary)
 dust <path>
 
 # Disk usage — macOS visual (GUI)
@@ -40,30 +67,30 @@ open -a AmorphousDiskMark
 
 % toolbox, files, search, find
 
-# Find files — by name (modern find)
+# Find files — replaces find (smart case, respects .gitignore, regex)
 fd <pattern>
 
-# Find files — by content (modern grep)
+# Find in files — replaces grep (ripgrep — fast recursive search)
 rg <pattern>
 
-# List files — with icons and git status (modern ls)
+# List files — replaces ls (icons, git status, colors)
 eza -la --icons --git
 
-# List files — with icons and colors (alternative ls)
+# List files — replaces ls (alternative: icons and colors)
 lsd -la
 
 # Browse files — terminal file manager (midnight commander)
 mc
 
-# File content — syntax-highlighted cat
+# File content — replaces cat (syntax highlighting, line numbers, git diff)
 bat <file>
 
-# File tree — recursive with icons
+# File tree — replaces tree (recursive with icons and git awareness)
 eza --tree --icons
 
 % toolbox, text, replace, sed
 
-# Find and replace in files — interactive (modern sed)
+# Find and replace — replaces sed (intuitive regex, no backslash hell)
 sd '<find>' '<replace>' <file>
 
 # Convert line endings — DOS to Unix
@@ -80,10 +107,10 @@ gh
 # Git — hub CLI (legacy GitHub wrapper)
 hub
 
-# Git — pretty diff viewer (side-by-side, syntax-aware)
+# Git — replaces diff (structural, syntax-aware side-by-side)
 difft <file_a> <file_b>
 
-# Git — enhanced diff pager (used automatically via gitconfig)
+# Git — replaces diff pager (syntax highlighting, line numbers, via gitconfig)
 delta
 
 # Git — extra commands (summary, effort, undo, etc.)
@@ -94,10 +121,10 @@ open -a GitKraken
 
 % toolbox, http, api, request
 
-# HTTP client — modern curl alternative (colorized, httpie-compatible)
+# HTTP client — replaces curl (colorized output, httpie-compatible syntax)
 xh <method> <url>
 
-# HTTP client — python-based with pretty output
+# HTTP client — replaces curl (python-based, pretty output)
 http <method> <url>
 
 # HTTP client — classic
@@ -114,7 +141,7 @@ websocat <ws_url>
 
 % toolbox, dns, network
 
-# DNS lookup — modern dig with colors
+# DNS lookup — replaces dig (colorized, supports DoH/DoT/DoQ)
 doggo <domain>
 
 # Network speed — bandwidth test (TCP)
@@ -128,6 +155,9 @@ autossh -M 0 <host>
 
 # SSH — share terminal session (tmux over SSH)
 tmate
+
+# Terminal sharing — share terminal as read-only web page (see: navi ttyd)
+ttyd zsh
 
 # Mount remote filesystem via SSH
 sshfs <user>@<host>:<remote_path> <local_mount>
@@ -180,10 +210,10 @@ kcat -b <broker> -t <topic>
 
 % toolbox, benchmark, measure
 
-# Benchmark — compare command execution times
+# Benchmark — replaces time (statistical comparison of commands)
 hyperfine '<cmd_a>' '<cmd_b>'
 
-# Code stats — count lines of code by language
+# Code stats — replaces cloc/wc -l (fast LOC counting by language)
 tokei
 
 # Shell startup — measure zsh init time
@@ -214,10 +244,10 @@ open -a XMind
 # Interactive cheatsheet browser (Ctrl+G)
 navi
 
-# Quick command examples (tldr)
+# Quick command examples — replaces man (concise community examples)
 tldr <command>
 
-# Cheat — community cheatsheets
+# Cheat — replaces man (community cheatsheets with editable local sheets)
 cheat <command>
 
 # Snippet manager — save and search snippets
@@ -242,13 +272,13 @@ gpg
 
 % toolbox, version-manager, runtime
 
-# Manage runtimes — node, python, ruby, java, go, etc. (mise)
+# Manage runtimes — replaces nvm/pyenv/rbenv/jenv/goenv (single tool)
 mise list
 
-# Install a runtime version
+# Install a runtime version — replaces nvm install, pyenv install, etc.
 mise use <tool>@<version>
 
-# Python package manager — fast pip/venv replacement
+# Python packaging — replaces pip + venv + pipenv (10-100x faster)
 uv
 
 # Scala CLI
@@ -285,7 +315,7 @@ open -a "Mountain Duck"
 
 % toolbox, terminal, navigation
 
-# Directory jumper — frecency-based (z/cd replacement)
+# Directory jumper — replaces cd (frecency-based, learns your habits)
 z <partial_path>
 
 # Session manager — tmux session picker

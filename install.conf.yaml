@@ -19,7 +19,9 @@
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/nvim: nvim
     ~/.navi: navi
+    ~/.config/ttyd: ttyd
     ~/.config/cheat/conf.yml: cheat/conf.yml
+    ~/.config/opencode: opencode
 
 - shell:
   - command: |

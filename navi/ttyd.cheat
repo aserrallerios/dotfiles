@@ -1,0 +1,64 @@
+% ttyd, terminal, share, demo
+
+# Share current shell read-only on default port (7681)
+ttyd zsh
+
+# Share current shell on a custom port
+ttyd -p <port> zsh
+
+# Share a tmux session read-only (viewers watch live)
+ttyd tmux attach -t <session>
+
+# Share with write access (viewers can type — be careful)
+ttyd -W zsh
+
+# Share with basic auth (username:password)
+ttyd -c <credentials> zsh
+
+# Share with a random URL for security
+ttyd -p <port> -c <credentials> tmux attach -t <session>
+
+# Share and open browser automatically
+ttyd -B zsh
+
+# Share with SSL enabled
+ttyd -S -C <cert_path> -K <key_path> zsh
+
+# Share a specific command read-only (e.g. logs, top, k9s)
+ttyd <command>
+
+# Accept only one client and exit on disconnect
+ttyd -o zsh
+
+# Limit max number of connected clients
+ttyd -m <max_clients> zsh
+
+# Share on all IPv6 interfaces
+ttyd -6 -p <port> zsh
+
+# Share with NerdFont glyphs (MesloLGS NF via custom index.html)
+ttyd -I ~/.config/ttyd/index.html -t fontFamily="'MesloLGS NF',monospace" zsh
+
+# Regenerate custom index.html after ttyd upgrade
+python3 ~/.config/ttyd/generate-index.py
+
+# $ session: tmux list-sessions --- --column 1 --delimiter ':'
+# $ port: echo '7681'
+# $ credentials: echo 'user:pass'
+# $ max_clients: echo '5'
+# $ command: echo 'top\nhtop\nbtop\nk9s\nlazygit\nlazydocker'
+# $ cert_path: echo '~/.ttyd.crt'
+# $ key_path: echo '~/.ttyd.key'
+
+% ttyd, tunnel, share, remote, cloudflared
+
+# Expose ttyd publicly via Cloudflare quick tunnel (no signup)
+cloudflared tunnel --url http://localhost:7681
+
+# Expose ttyd on a custom port via Cloudflare tunnel
+cloudflared tunnel --url http://localhost:<port>
+
+# Full demo workflow — share tmux session publicly read-only
+# 1) Start ttyd:  ttyd tmux attach -t <session>
+# 2) Then run this to get a public HTTPS URL:
+cloudflared tunnel --url http://localhost:7681
