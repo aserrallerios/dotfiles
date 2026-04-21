@@ -24,7 +24,7 @@ curl -fsSL https://raw.githubusercontent.com/aserrallerios/dotfiles/master/boots
 | Terminal multiplexer | tmux + [TPM](https://github.com/tmux-plugins/tpm)                  | `tmux/tmux.conf`                 |
 | Editor               | [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/) | `nvim/`                          |
 | Git                  | git aliases & config                                               | `git/gitconfig`, `git/gitignore` |
-| Cheatsheets          | [navi](https://github.com/denisidoro/navi)                         | `navi/`                          |
+| Navi Cheats          | [navi](https://github.com/denisidoro/navi)                         | `navi/`                          |
 | Cheatsheets          | [cheat](https://github.com/cheat/cheat)                            | `cheat/`                         |
 
 ## Structure

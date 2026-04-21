@@ -1,0 +1,43 @@
+% multipass, vm, cloud, ubuntu
+
+# Launch Ubuntu VM (default)
+multipass launch
+
+# Launch Ubuntu VM with custom name
+multipass launch -n <name>
+
+# List running VMs
+multipass list
+
+# Shell into a VM
+multipass shell <name>
+
+# Stop a VM
+multipass stop <name>
+
+# Delete a VM
+multipass delete <name>
+
+# Purge deleted VMs
+multipass purge
+
+# Mount a local folder into a VM
+multipass mount <local_path> <name>:/mnt
+
+# Transfer file into VM
+multipass transfer <file> <name>:/home/ubuntu/
+
+# Run a command in a VM
+multipass exec <name> -- <command>
+
+# Get VM info (IP, resources)
+multipass info <name>
+
+# Launch with custom resources
+multipass launch -n <name> --cpus 2 --mem 4G --disk 20G
+
+# Launch with specific Ubuntu version
+multipass launch 22.04 -n <name>
+
+# List available images
+multipass find
