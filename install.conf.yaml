@@ -16,6 +16,9 @@
       path: git/gitconfig
       force: true
     ~/.gitignore: git/gitignore
+    ~/.editorconfig: editorconfig
+    ~/.gitattributes: gitattributes
+    ~/.mise.toml: mise.toml
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/nvim: nvim
     ~/.navi: navi
@@ -61,31 +64,4 @@
     stdin: true
     stdout: true
     stderr: true
-  - command: |
-      if command -v navi >/dev/null 2>&1; then
-        navi_repos=(
-          denisidoro/cheats
-          denisidoro/navi-tldr-pages
-          denisidoro/dotfiles
-          chazeon/my-navi-cheats
-          caojianhua/MyCheat
-          infosecstreams/cheat.sheets
-          isene/cheats
-          Kidman1670/cheats
-          m42martin/navi-cheats
-          mrVanDalo/navi-cheats
-          papanito/cheats
-          prx2090/cheatsheets-for-navi
-        )
-        navi_dir="$(navi info cheats-path)"
-        for repo in "${navi_repos[@]}"; do
-          dir_name="${navi_dir}/$(echo "$repo" | tr '/' '__')"
-          if [ ! -d "$dir_name" ]; then
-            navi repo add "$repo"
-          fi
-        done
-      fi
-    description: Installing navi community cheatsheet repos (if not present)
-    stdin: true
-    stdout: true
-    stderr: true
+

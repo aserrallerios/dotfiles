@@ -1,0 +1,9 @@
+[tools]
+node = "20"
+python = "3.12"
+ruby = "3.3"
+go = "latest"
+
+[settings]
+# Always use the project's local .mise.toml if present
+experimental = true

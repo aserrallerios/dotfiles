@@ -1,0 +1,8 @@
+{
+  "port": 7681,
+  "timeout": 0,
+  "max-connection": 1,
+  "credential": null,
+  "check-origin": true,
+  "debug": false
+}

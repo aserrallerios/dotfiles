@@ -1,0 +1,42 @@
+# Auto-detect text files and ensure LF line endings
+* text=auto
+
+# Force bash scripts to always use LF
+*.sh text eol=lf
+
+# Force specific languages to use LF
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.xml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.lua text eol=lf
+*.vim text eol=lf
+*.zsh text eol=lf
+
+# Diff improvements for lock files
+package-lock.json -diff
+yarn.lock -diff
+pnpm-lock.yaml -diff
+Gemfile.lock -diff
+Pipfile.lock -diff
+poetry.lock -diff
+Cargo.lock -diff
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.pdf binary

@@ -66,6 +66,7 @@ dotfiles/
 | `tmux/plugins/tpm` | `~/.tmux/plugins/tpm`      |
 | `nvim/`            | `~/.config/nvim`           |
 | `navi/`            | `~/.navi`                  |
+| `opencode/`        | `~/.config/opencode`       |
 | `cheat/conf.yml`   | `~/.config/cheat/conf.yml` |
 
 ## Prerequisites

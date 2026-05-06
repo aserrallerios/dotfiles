@@ -17,6 +17,16 @@ Options:
 EOF
 }
 
+# Dependency checks
+check_deps() {
+  for cmd in git zsh curl; do
+    if ! command -v "$cmd" >/dev/null 2>&1; then
+      echo "Error: $cmd is required but not installed." >&2
+      exit 1
+    fi
+  done
+}
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -b|--branch)
@@ -30,15 +40,18 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+check_deps
+
 clone_repo() {
   if [ ! -d "$TARGET" ]; then
     echo "Cloning dotfiles ($BRANCH) into $TARGET";
-    git clone -b "$BRANCH" --single-branch --depth 1 https://github.com/aserrallerios/dotfiles.git "$TARGET"
+    git clone -b "$BRANCH" --single-branch https://github.com/aserrallerios/dotfiles.git "$TARGET"
   else
-    echo "Repo exists; updating ($BRANCH)";
-    git -C "$TARGET" fetch origin "$BRANCH" --depth 1 || true
-    git -C "$TARGET" checkout "$BRANCH" || true
-    git -C "$TARGET" pull --ff-only || true
+    echo "Repo exists; updating ($BRANCH)"
+    git -C "$TARGET" fetch origin "$BRANCH" || true
+    git -C "$TARGET" checkout "$BRANCH" 2>/dev/null || \
+      git -C "$TARGET" checkout -b "$BRANCH" "origin/$BRANCH" 2>/dev/null || true
+    git -C "$TARGET" reset --hard "origin/$BRANCH" || true
   fi
 }
 
