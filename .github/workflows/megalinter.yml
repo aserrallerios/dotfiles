@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       # Run MegaLinter using the repo's script
-      - name: Run MegaLinter (validate all files)
+      - name: Run MegaLinter
         id: megalinter
         run: |
           chmod +x ./run-megalinter.sh
@@ -33,8 +33,15 @@ jobs:
       - name: Report Build Status
         if: always()
         run: |
+          # Check if megalinter script passed
+          if [ "${{ steps.megalinter.outcome }}" = "success" ]; then
+            echo "::notice::MegaLinter passed - Build GREEN"
+            exit 0
+          fi
+          
+          # Check JSON report if it exists
           if [ -f "megalinter-report.json" ] && command -v jq &> /dev/null; then
-            HAS_ERRORS=$(jq -r '.hasErrors // false' megalinter-report.json)
+            HAS_ERRORS=$(jq -r '.hasErrors // false' megalinter-report.json 2>/dev/null)
             if [ "$HAS_ERRORS" = "true" ]; then
               echo "::error::MegaLinter found issues - Build RED"
               exit 1
@@ -42,13 +49,22 @@ jobs:
               echo "::notice::MegaLinter passed - Build GREEN"
               exit 0
             fi
-          elif [ -f "megalinter-report.txt" ] && grep -qi "error" megalinter-report.txt; then
-            echo "::error::MegaLinter found issues - Build RED"
-            exit 1
-          else
-            echo "::notice::MegaLinter passed - Build GREEN"
-            exit 0
           fi
+          
+          # Check text report if it exists
+          if [ -f "megalinter-report.txt" ]; then
+            if grep -qi "error\|failed" megalinter-report.txt; then
+              echo "::error::MegaLinter found issues - Build RED"
+              exit 1
+            else
+              echo "::notice::MegaLinter passed - Build GREEN"
+              exit 0
+            fi
+          fi
+          
+          # If we get here and outcome wasn't success, fail
+          echo "::error::MegaLinter failed - Build RED"
+          exit 1
 
       # Upload MegaLinter reports as artifacts
       - name: Upload MegaLinter Report
