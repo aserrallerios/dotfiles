@@ -1,0 +1,62 @@
+name: MegaLinter
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+permissions:
+  contents: read
+  statuses: write
+
+jobs:
+  megalinter:
+    name: MegaLinter
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Run MegaLinter using the repo's script
+      - name: Run MegaLinter (validate all files)
+        id: megalinter
+        run: |
+          chmod +x ./run-megalinter.sh
+          ./run-megalinter.sh
+        continue-on-error: true
+
+      # Report build status (green/red)
+      - name: Report Build Status
+        if: always()
+        run: |
+          if [ -f "megalinter-report.json" ] && command -v jq &> /dev/null; then
+            HAS_ERRORS=$(jq -r '.hasErrors // false' megalinter-report.json)
+            if [ "$HAS_ERRORS" = "true" ]; then
+              echo "::error::MegaLinter found issues - Build RED"
+              exit 1
+            else
+              echo "::notice::MegaLinter passed - Build GREEN"
+              exit 0
+            fi
+          elif [ -f "megalinter-report.txt" ] && grep -qi "error" megalinter-report.txt; then
+            echo "::error::MegaLinter found issues - Build RED"
+            exit 1
+          else
+            echo "::notice::MegaLinter passed - Build GREEN"
+            exit 0
+          fi
+
+      # Upload MegaLinter reports as artifacts
+      - name: Upload MegaLinter Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: megalinter-report
+          path: |
+            megalinter-report.txt
+            megalinter-report.json
+          retention-days: 5

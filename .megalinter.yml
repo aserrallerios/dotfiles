@@ -1,0 +1,114 @@
+# Megalinter Configuration for Dotfiles
+# https://megalinter.io/
+
+# Only validate changed files (softer approach - doesn't flag everything at once)
+VALIDATE_ALL_CODEBASE: false
+
+# Don't fail the build immediately - report but continue
+FAIL_IF_UPDATED_SOURCES: false
+FAIL_IF_NEW_UPDATED_SOURCES: false
+FAIL_ON_ERROR: false
+
+# Show errors but don't block (soften checks)
+SHOW_ELAPSED_TIME: true
+SHOW_SKIPPED_LINTERS: true
+
+# Enable as many linters as possible
+ENABLE:
+  # Shell & Scripting
+  - BASH
+  - BASH_EXEC
+  - SHELL_SHFMT
+  - ZSH
+  
+  # Configuration files
+  - YAML
+  - JSON
+  - TOML
+  - XML
+  - CSV
+  - INI
+  
+  # Documentation
+  - MARKDOWN
+  - MARKDOWN_LINK_CHECK
+  - TEXTILE
+  - RST
+  - ASPell
+  
+  # Programming languages (for any scripts)
+  - PYTHON
+  - PYTHON_PYLINT
+  - PYTHON_FLAKE8
+  - PYTHON_BLACK
+  - LUA
+  
+  # Git & Version Control
+  - GIT_COMMITLINT
+  - GIT_GUARD
+  
+  # DevOps & IaC
+  - DOCKERFILE
+  - DOCKERFILE_HADOLINT
+  - TERRAFORM
+  - TERRAFORM_TFLINT
+  - ANSIBLE
+  - ANSIBLE_LINT
+  
+  # Secret detection (important for dotfiles!)
+  - SPELL_KEYWORDS
+  - SECRET
+  - GITLEAKS
+  
+  # General quality
+  - COPYPASTE
+  - SPELL_CHECK
+  - EDITORCONFIG
+
+# Softened settings for specific linters
+BASH_BASH_EXEC_ARGUMENTS: "--modified"
+BASH_SHELLCHECK_ARGUMENTS: "--severity=warning"
+
+# Markdown - be lenient
+MARKDOWN_MARKDOWNLINT_ARGUMENTS: "--config .markdownlint.json || true"
+
+# YAML - allow duplicates and relax rules
+YAML_YAMLLINT_ARGUMENTS: "--config-file .yamllint.yml"
+
+# JSON - be permissive
+JSON_JSONLINT_ARGUMENTS: "--quiet"
+
+# Don't validate generated or third-party files
+FILTER_REGEX_EXCLUDE:
+  - '.*\.git/.*'
+  - '.*node_modules/.*'
+  - '.*\.cache/.*'
+  - '.*/nvim/lazy-lock\.json'
+  - '.*/lazyvim\.json'
+  - '.*/zsh-files/.*'
+  - '.*/AGENTS\.md'
+
+# Additional exclude paths
+EXCLUDES:
+  - ".git"
+  - "node_modules"
+  - ".cache"
+
+# Reporter settings
+REPORTERS:
+  - reporter: "console"
+    params:
+      show_elapsed_time: true
+  - reporter: "text"
+    params:
+      file_name: "megalinter-report.txt"
+  - reporter: "json"
+    params:
+      file_name: "megalinter-report.json"
+
+# Print config
+PRINT_ALPACA:
+  - BASH
+  - YAML
+  - JSON
+  - MARKDOWN
