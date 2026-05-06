@@ -14,7 +14,7 @@ docker run --rm \
   -v "$(pwd):/tmp/lint" \
   -v "$(pwd)/.megalinter.yml:/tmp/lint/.megalinter.yml" \
   -e VALIDATE_ALL_CODEBASE=false \
-  megalinter/megalinter:latest 2>&1 | tee /tmp/megalinter-output.txt
+  oxsecurity/megalinter:latest 2>&1 | tee /tmp/megalinter-output.txt
 
 MEGALINTER_EXIT=${PIPESTATUS[0]}
 
