@@ -15,13 +15,11 @@ jobs:
     name: MegaLinter
     runs-on: ubuntu-latest
     steps:
-      # Checkout the code
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # Run MegaLinter using the repo's script
       - name: Run MegaLinter
         id: megalinter
         run: |
@@ -29,17 +27,16 @@ jobs:
           ./run-megalinter.sh
         continue-on-error: true
 
-      # Report build status (green/red)
       - name: Report Build Status
         if: always()
         run: |
-          # Check if megalinter script passed
+          # Check script outcome first
           if [ "${{ steps.megalinter.outcome }}" = "success" ]; then
             echo "::notice::MegaLinter passed - Build GREEN"
             exit 0
           fi
           
-          # Check JSON report if it exists
+          # Check JSON report (single source of truth)
           if [ -f "megalinter-report.json" ] && command -v jq &> /dev/null; then
             HAS_ERRORS=$(jq -r '.hasErrors // false' megalinter-report.json 2>/dev/null)
             if [ "$HAS_ERRORS" = "true" ]; then
@@ -51,28 +48,14 @@ jobs:
             fi
           fi
           
-          # Check text report if it exists
-          if [ -f "megalinter-report.txt" ]; then
-            if grep -qi "error\|failed" megalinter-report.txt; then
-              echo "::error::MegaLinter found issues - Build RED"
-              exit 1
-            else
-              echo "::notice::MegaLinter passed - Build GREEN"
-              exit 0
-            fi
-          fi
-          
-          # If we get here and outcome wasn't success, fail
+          # Fallback: failed if script errored
           echo "::error::MegaLinter failed - Build RED"
           exit 1
 
-      # Upload MegaLinter reports as artifacts
       - name: Upload MegaLinter Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: megalinter-report
-          path: |
-            megalinter-report.txt
-            megalinter-report.json
+          path: "megalinter-report.json"
           retention-days: 5

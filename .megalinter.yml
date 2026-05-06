@@ -94,14 +94,11 @@ EXCLUDES:
   - "node_modules"
   - ".cache"
 
-# Reporter settings
+# Reporter settings - JSON only (structured, reliable parsing)
 REPORTERS:
   - reporter: "console"
     params:
       show_elapsed_time: true
-  - reporter: "text"
-    params:
-      file_name: "megalinter-report.txt"
   - reporter: "json"
     params:
       file_name: "megalinter-report.json"

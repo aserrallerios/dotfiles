@@ -133,6 +133,7 @@ Megalinter settings are in `.megalinter.yml`:
 - Only validates changed files (not full codebase) for faster checks
 - Softened rules — warnings don't block commits
 - Generated files (like `lazy-lock.json`) are excluded
+- Produces `megalinter-report.json` as single source of truth
 
 To run on the full codebase:
 
