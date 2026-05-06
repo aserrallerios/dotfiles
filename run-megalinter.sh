@@ -10,10 +10,12 @@ echo "Running Megalinter..."
 rm -f megalinter-report.json
 
 # Run megalinter via Docker (uses .megalinter.yml for config)
+# REPORTERS env var sets JSON output as single source of truth
 docker run --rm \
   -v "$(pwd):/tmp/lint" \
   -v "$(pwd)/.megalinter.yml:/tmp/lint/.megalinter.yml" \
   -e VALIDATE_ALL_CODEBASE=false \
+  -e REPORTERS='[{"reporter":"json","params":{"file_name":"megalinter-report.json"}}]' \
   oxsecurity/megalinter:latest 2>&1 | tee /tmp/megalinter-output.txt
 
 MEGALINTER_EXIT=${PIPESTATUS[0]}

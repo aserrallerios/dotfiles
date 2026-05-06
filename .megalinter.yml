@@ -78,7 +78,7 @@ YAML_YAMLLINT_ARGUMENTS: "--config-file .yamllint.yml"
 # JSON - be permissive
 JSON_JSONLINT_ARGUMENTS: "--quiet"
 
-# Don't validate generated or third-party files (use EXCLUDES for paths, FILTER_REGEX_EXCLUDE for regex)
+# Don't validate generated or third-party files (use EXCLUDES for paths)
 EXCLUDES:
   - ".git"
   - "node_modules"
@@ -87,15 +87,6 @@ EXCLUDES:
   - "lazyvim.json"
   - "zsh-files"
   - "AGENTS.md"
-
-# Reporter settings - JSON only (structured, reliable parsing)
-REPORTERS:
-  - reporter: "console"
-    params:
-      show_elapsed_time: true
-  - reporter: "json"
-    params:
-      file_name: "megalinter-report.json"
 
 # Print config
 PRINT_ALPACA:
