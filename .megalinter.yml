@@ -1,96 +1,52 @@
-# Megalinter Configuration for Dotfiles
-# https://megalinter.io/
+# MegaLinter Configuration for Dotfiles
+# https://megalinter.io/latest/configuration/
 
-# Only validate changed files (softer approach - doesn't flag everything at once)
+# Only validate changed files on PRs (CI overrides via env var for push to main)
 VALIDATE_ALL_CODEBASE: false
 
-# Don't fail the build immediately - report but continue
-FAIL_IF_UPDATED_SOURCES: false
-FAIL_IF_NEW_UPDATED_SOURCES: false
-FAIL_ON_ERROR: false
-
-# Show errors but don't block (soften checks)
+# Show elapsed time per linter
 SHOW_ELAPSED_TIME: true
-SHOW_SKIPPED_LINTERS: true
 
-# Enable as many linters as possible
+# Enable only relevant descriptors for a dotfiles repo
 ENABLE:
-  # Shell & Scripting
   - BASH
-  - BASH_EXEC
-  - SHELL_SHFMT
-  - ZSH
-  
-  # Configuration files
+  - LUA
   - YAML
   - JSON
-  - TOML
-  - XML
-  - CSV
-  - INI
-  
-  # Documentation
   - MARKDOWN
-  - MARKDOWN_LINK_CHECK
-  - TEXTILE
-  - RST
-  - ASPell
-  
-  # Programming languages (for any scripts)
-  - PYTHON
-  - PYTHON_PYLINT
-  - PYTHON_FLAKE8
-  - PYTHON_BLACK
-  - LUA
-  
-  # Git & Version Control
-  - GIT_COMMITLINT
-  - GIT_GUARD
-  
-  # DevOps & IaC
   - DOCKERFILE
-  - DOCKERFILE_HADOLINT
-  - TERRAFORM
-  - TERRAFORM_TFLINT
-  - ANSIBLE
-  - ANSIBLE_LINT
-  
-  # Secret detection (important for dotfiles!)
-  - SPELL_KEYWORDS
-  - SECRET
-  - GITLEAKS
-  
-  # General quality
-  - COPYPASTE
-  - SPELL_CHECK
+  - ACTION
   - EDITORCONFIG
+  - REPOSITORY
+  - COPYPASTE
+  - SPELL
 
-# Softened settings for specific linters
-BASH_BASH_EXEC_ARGUMENTS: "--modified"
+# Disable overly noisy linters within enabled descriptors
+DISABLE_LINTERS:
+  - MARKDOWN_MARKDOWN_LINK_CHECK
+  - REPOSITORY_CHECKOV
+  - REPOSITORY_DEVSKIM
+  - REPOSITORY_DUSTILOCK
+  - REPOSITORY_GRYPE
+  - REPOSITORY_KICS
+  - REPOSITORY_LS_LINT
+  - REPOSITORY_SEMGREP
+  - REPOSITORY_SYFT
+  - REPOSITORY_TRIVY
+  - REPOSITORY_TRIVY_SBOM
+
+# Keep gitleaks for secret detection
+REPOSITORY_GITLEAKS_ARGUMENTS: "--no-git"
+
+# Shellcheck - only warnings and above
 BASH_SHELLCHECK_ARGUMENTS: "--severity=warning"
 
-# Markdown - be lenient
-MARKDOWN_MARKDOWNLINT_ARGUMENTS: "--config .markdownlint.json || true"
+# Markdown linter config
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: .markdownlint.json
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: "(dotbot/|nvim/)"
 
-# YAML - allow duplicates and relax rules
-YAML_YAMLLINT_ARGUMENTS: "--config-file .yamllint.yml"
+# YAML linter config
+YAML_YAMLLINT_CONFIG_FILE: .yamllint.yml
 
-# JSON - be permissive
-JSON_JSONLINT_ARGUMENTS: "--quiet"
-
-# Don't validate generated or third-party files (use EXCLUDES for paths)
-EXCLUDES:
-  - ".git"
-  - "node_modules"
-  - ".cache"
-  - "nvim/lazy-lock.json"
-  - "lazyvim.json"
-  - "zsh-files"
-  - "AGENTS.md"
-
-# Print config
-PRINT_ALPACA:
-  - BASH
-  - YAML
-  - JSON
-  - MARKDOWN
+# Ignore vendored/submodule directories and generated files
+FILTER_REGEX_EXCLUDE: '(dotbot/|\.git/|nvim/lazy-lock\.json|lazyvim\.json)'

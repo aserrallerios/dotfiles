@@ -1,42 +1,39 @@
 #!/bin/bash
-# Megalinter runner script
-# Returns 0 if megalinter passes, 1 if it finds issues
+# MegaLinter local runner script
+# Runs MegaLinter via Docker and outputs the markdown summary
+# Returns 0 if MegaLinter passes, 1 if it finds issues
 
-set -o pipefail
+set -euo pipefail
 
-echo "Running Megalinter..."
+REPORT_DIR="megalinter-reports"
 
-# Remove old report
-rm -f megalinter-report.json
+echo "Running MegaLinter..."
 
-# Run megalinter via Docker (uses .megalinter.yml for config)
-# REPORTERS env var sets JSON output as single source of truth
+# Clean previous reports
+rm -rf "$REPORT_DIR" mega-linter.log
+
+# Run MegaLinter via Docker with proper volume mounts
+# Reports are written to megalinter-reports/ in the workspace
 docker run --rm \
-  -v "$(pwd):/tmp/lint" \
-  -v "$(pwd)/.megalinter.yml:/tmp/lint/.megalinter.yml" \
-  -e VALIDATE_ALL_CODEBASE=false \
-  -e REPORTERS='[{"reporter":"json","params":{"file_name":"megalinter-report.json"}}]' \
-  oxsecurity/megalinter:latest 2>&1 | tee /tmp/megalinter-output.txt
+  -v "$(pwd):/tmp/lint:rw" \
+  -e DEFAULT_WORKSPACE=/tmp/lint \
+  -e VALIDATE_ALL_CODEBASE=true \
+  oxsecurity/megalinter:v9
 
-MEGALINTER_EXIT=${PIPESTATUS[0]}
+MEGALINTER_EXIT=$?
 
-# Check JSON report (single source of truth)
-if [ -f "megalinter-report.json" ] && command -v jq &> /dev/null; then
-  HAS_ERRORS=$(jq -r '.hasErrors // false' megalinter-report.json 2>/dev/null)
-  if [ "$HAS_ERRORS" = "true" ]; then
-    echo "✗ Megalinter: FAILED (found issues in JSON report)"
-    exit 1
-  else
-    echo "✓ Megalinter: PASSED"
-    exit 0
-  fi
+# Display the markdown summary if available
+if [ -f "$REPORT_DIR/megalinter-report.md" ]; then
+  echo ""
+  echo "========== MegaLinter Summary =========="
+  cat "$REPORT_DIR/megalinter-report.md"
+  echo "========================================"
 fi
 
-# Fallback if no JSON report
+# Exit with MegaLinter's exit code
 if [ $MEGALINTER_EXIT -eq 0 ]; then
-  echo "✓ Megalinter: PASSED (no JSON report, exit code 0)"
-  exit 0
+  echo "✓ MegaLinter: PASSED"
 else
-  echo "✗ Megalinter: FAILED (exit code $MEGALINTER_EXIT, no JSON report)"
-  exit 1
+  echo "✗ MegaLinter: FAILED"
 fi
+exit $MEGALINTER_EXIT
