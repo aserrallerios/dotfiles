@@ -15,9 +15,11 @@
     ~/.gitconfig:
       path: git/gitconfig
       force: true
+    ~/.gitattributes:
+      path: git/gitattributes
+      force: true
     ~/.gitignore: git/gitignore
     ~/.editorconfig: editorconfig
-    ~/.gitattributes: gitattributes
     ~/.mise.toml: mise.toml
     ~/.tmux.conf: tmux/tmux.conf
     ~/.config/nvim: nvim
@@ -64,4 +66,3 @@
     stdin: true
     stdout: true
     stderr: true
-

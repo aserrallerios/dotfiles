@@ -187,6 +187,7 @@
 [core]
     editor = nvim
     excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
     autocrlf = false
     preloadindex = true
     pager = delta
@@ -211,4 +212,3 @@
     enabled = true
 [include]
     path = .gitconfig.user
-

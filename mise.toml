@@ -7,3 +7,4 @@ go = "latest"
 [settings]
 # Always use the project's local .mise.toml if present
 experimental = true
+# legacy_version_file = true
