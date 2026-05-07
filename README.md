@@ -88,3 +88,55 @@ dotfiles/
 ```bash
 cd ~/.dotfiles && git pull && ./install
 ```
+
+## Code Quality with Megalinter
+
+This repo uses [Megalinter](https://megalinter.io/) to validate code quality across all file types.
+
+### What's enabled
+
+Megalinter runs **30+ linters** covering:
+- **Shell**: bash, shellcheck, shfmt, zsh
+- **Config files**: YAML, JSON, TOML, XML, INI
+- **Documentation**: Markdown, spell check, link checks
+- **Languages**: Python, Lua
+- **DevOps**: Dockerfile, Ansible, Terraform
+- **Security**: Secret detection, gitleaks
+
+### Quick check
+
+Run megalinter locally:
+
+```bash
+./run-megalinter.sh
+```
+
+Returns:
+- Exit code `0` — All checks passed ✓
+- Exit code `1` — Issues found ✗
+
+### Pre-commit hook
+
+Megalinter runs automatically on `git commit`. To skip it:
+
+```bash
+git commit --no-verify
+```
+
+### CI/CD
+
+A GitHub Actions workflow (`.github/workflows/megalinter.yml`) runs megalinter on every push to `master` and reports build status.
+
+### Configuration
+
+Megalinter settings are in `.megalinter.yml`:
+- Only validates changed files (not full codebase) for faster checks
+- Softened rules — warnings don't block commits
+- Generated files (like `lazy-lock.json`) are excluded
+- Produces `megalinter-report.json` as single source of truth
+
+To run on the full codebase:
+
+```bash
+VALIDATE_ALL_CODEBASE=true ./run-megalinter.sh
+```

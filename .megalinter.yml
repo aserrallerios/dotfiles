@@ -1,0 +1,52 @@
+# MegaLinter Configuration for Dotfiles
+# https://megalinter.io/latest/configuration/
+
+# Only validate changed files on PRs (CI overrides via env var for push to main)
+VALIDATE_ALL_CODEBASE: false
+
+# Show elapsed time per linter
+SHOW_ELAPSED_TIME: true
+
+# Enable only relevant descriptors for a dotfiles repo
+ENABLE:
+  - BASH
+  - LUA
+  - YAML
+  - JSON
+  - MARKDOWN
+  - DOCKERFILE
+  - ACTION
+  - EDITORCONFIG
+  - REPOSITORY
+  - COPYPASTE
+  - SPELL
+
+# Disable overly noisy linters within enabled descriptors
+DISABLE_LINTERS:
+  - MARKDOWN_MARKDOWN_LINK_CHECK
+  - REPOSITORY_CHECKOV
+  - REPOSITORY_DEVSKIM
+  - REPOSITORY_DUSTILOCK
+  - REPOSITORY_GRYPE
+  - REPOSITORY_KICS
+  - REPOSITORY_LS_LINT
+  - REPOSITORY_SEMGREP
+  - REPOSITORY_SYFT
+  - REPOSITORY_TRIVY
+  - REPOSITORY_TRIVY_SBOM
+
+# Keep gitleaks for secret detection
+REPOSITORY_GITLEAKS_ARGUMENTS: "--no-git"
+
+# Shellcheck - only warnings and above
+BASH_SHELLCHECK_ARGUMENTS: "--severity=warning"
+
+# Markdown linter config
+MARKDOWN_MARKDOWNLINT_CONFIG_FILE: .markdownlint.json
+MARKDOWN_MARKDOWNLINT_FILTER_REGEX_EXCLUDE: "(dotbot/|nvim/)"
+
+# YAML linter config
+YAML_YAMLLINT_CONFIG_FILE: .yamllint.yml
+
+# Ignore vendored/submodule directories and generated files
+FILTER_REGEX_EXCLUDE: '(dotbot/|\.git/|nvim/lazy-lock\.json|lazyvim\.json)'
